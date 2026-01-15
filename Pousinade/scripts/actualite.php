@@ -1,6 +1,5 @@
 <?php
     include ('configuration/config.php');
-    include ('../index.php');
 
     class actualite {
         public $id_actualite = 0;
