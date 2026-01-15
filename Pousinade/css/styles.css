@@ -85,14 +85,14 @@ h1 {
     filter: brightness(0) invert(1);
 }
 
-/* --- CONFIGURATION DESKTOP (Déjà faite précédemment) --- */
-.hamburger, .menu-toggle { display: none; } /* On cache le menu mobile sur PC */
+/* --- Responsive HEADER --- */
+.hamburger, .menu-toggle { display: none; } /* cache menu mobile sur PC */
 
 /* --- RESPONSIVE MOBILE / TABLETTE --- */
 @media screen and (max-width: 1024px) {
-    .header-contact { display: none; } /* Cache le texte "Nous contacter" */
+    .header-contact { display: none; } 
 
-    /* Style de l'icône Hamburger (3 barres blanches) */
+    /* menu burger*/
     .hamburger {
         display: block;
         cursor: pointer;
@@ -108,7 +108,7 @@ h1 {
         border-radius: 2px;
     }
 
-    /* Cache le menu par défaut sur mobile */
+    /* Cache menu par défaut */
     .nav-menu {
         display: none;
         position: absolute;
@@ -128,7 +128,7 @@ h1 {
         margin: 15px 0;
     }
 
-    /* Affiche le menu quand on clique sur le hamburger */
+    /* Affiche menu au clic*/
     .menu-toggle:checked ~ .nav-menu {
         display: block;
     }
