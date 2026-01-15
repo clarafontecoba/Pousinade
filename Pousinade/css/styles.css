@@ -41,27 +41,28 @@ body {
     color: white;
     text-align: center;
 }
-
-.banniereRDO {
-    position: relative; 
-    height: 20rem;
-    background-image: url("images/RDO.jpg");
-    background-size: cover;
-    background-position: center;
+.ateliers {
+    text-align: center;
 }
 
-.boutonVisite {
-    background-color: white;
+.cartes {
+    display: flex;
+    justify-content: space-around;
+}
+
+.carte {
+    width: 200px;
+    padding: 10px;
+    background-color: #a7ad4a; /* change selon ton design */
+    text-decoration: none;
     color: black;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: "policeCorps";
-    transition: background-color 0.3s;
 }
 
-.boutonVisite:hover {
-    background-color: #596882;
-    color: white;
+.carte img {
+    width: 100%;
+}
+
+.carte p {
+    border: 1px solid black;
+    padding: 5px;
 }
