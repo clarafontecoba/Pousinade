@@ -24,6 +24,11 @@ body {
     background-color: #000000;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 /*CLASSES*/
 .banniere {
     position: relative; 
