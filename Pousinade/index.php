@@ -1,7 +1,6 @@
 <?php
     include ('configuration/config.php');
 
-
     class administrateur {
         public $id_administrateur = 0;
         public $mot_de_passe = "";
