@@ -11,14 +11,16 @@
 h1 {
     font-family: "policetitre";
     color: rgb(255, 255, 255);
+    padding: 2%;
+}
+
+p {
+    padding: 2%;
 }
 
 body {
     font-family: "policeCorps" ;
     color: rgb(255, 255, 255);
-}
-
-body {
     background-color: #000000;
 }
 
@@ -38,4 +40,28 @@ body {
     transform: translate(-50%, -50%);
     color: white;
     text-align: center;
+}
+
+.banniereRDO {
+    position: relative; 
+    height: 20rem;
+    background-image: url("images/RDO.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.boutonVisite {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "policeCorps";
+    transition: background-color 0.3s;
+}
+
+.boutonVisite:hover {
+    background-color: #596882;
+    color: white;
 }
