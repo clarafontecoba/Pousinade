@@ -22,6 +22,32 @@
             $this->objet= $o;
         }
     }
+
+
+    public function getNom() {
+        return $this->nom;
+    }
+
+    public function getPrenom() {
+        return $this->prenom;
+    }
+
+    public function getCourriel() {
+        return $this->courriel;
+    }
+
+    public function getMessage() {
+        return $this->message;
+    }
+
+    public function getObjet() {
+        return $this->objet;
+    }
+
+    public function getDateEnvoi() {
+        return $this->date_envoi;
+    }
+}
 ?>
 
 <!DOCTYPE html>
