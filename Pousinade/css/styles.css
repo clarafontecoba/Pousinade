@@ -1,0 +1,9 @@
+h1 {
+    font-family: "policetitre";
+    src : url('polices/cinema_sunday/cinema\ sunday\ demo\ font.otf');
+}
+
+body {
+    font-family: "policeCorps" ;
+    src: url('polices/helvetica/HelveticaNowDisplay-Black.ttf');
+}
