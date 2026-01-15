@@ -36,15 +36,15 @@
 </head>
 <body>
      <p>
-        <img src="tel.png" alt="Téléphone" width="20" height="20">
+        <img src="images/tel.svg" alt="Téléphone" width="20" height="20">
         01 23 45 67 89
     </p>
     <p>
-        <img src="mail.png" alt="Email" width="20" height="20">
+        <img src="images/mail.svg" alt="Email" width="20" height="20">
         contact@monasso.fr
     </p>
     <p>
-        <img src="lieu.png" alt="Lieu" width="20" height="20">
+        <img src="images/lieu.svg" alt="Lieu" width="20" height="20">
         12 rue de l'Exemple, 75000 Paris
     </p>
     <h1>Formulaire de contact</h1>
