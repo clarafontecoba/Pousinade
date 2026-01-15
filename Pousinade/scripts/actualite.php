@@ -1,5 +1,5 @@
 <?php
-    include ('configuration/config.php');
+    include ('../configuration/config.php');
 
     class actualite {
         public $id_actualite = 0;
