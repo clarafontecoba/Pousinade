@@ -65,6 +65,6 @@
         <p>Votre message</p>
         <textarea></textarea><br>
 
-        <input type="submit" value="Envoyer">
+        <input  class = "boutonEnvoyer" type="submit" value="Envoyer">
 </body>
 </html>

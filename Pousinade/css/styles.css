@@ -58,10 +58,24 @@ body {
     border-radius: 5px;
     cursor: pointer;
     font-family: "policeCorps";
-
 }
 
 .boutonVisite:hover {
     background-color: #596882;
+    color: white;
+}
+
+.boutonEnvoyer {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "policeCorps";
+}
+
+.boutonEnvoyer:hover {
+    background-color: #A0A045;
     color: white;
 }
