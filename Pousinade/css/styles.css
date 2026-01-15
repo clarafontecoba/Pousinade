@@ -58,7 +58,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     font-family: "policeCorps";
-    transition: background-color 0.3s;
+
 }
 
 .boutonVisite:hover {
