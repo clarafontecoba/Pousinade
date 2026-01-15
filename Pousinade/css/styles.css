@@ -8,10 +8,128 @@
     src: url("polices/helvetica/HelveticaNowDisplay-Black.ttf");
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "policeCorps";
+}
+
 h1 {
     font-family: "policetitre";
 }
 
-body {
-    font-family: "policeCorps" ;
+/* Header */
+.main-header {
+    background-color: #596882;
+    color: white;
+    padding: 10px 5%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    font-family: "policeCorps";
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+/* Logo */
+.logo img {
+    height: 60px; 
+    border-radius: 50%;
+}
+
+/* Menu de navigation */
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu ul li {
+    margin: 0 20px;
+}
+
+.nav-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: "policeCorps";
+    transition: color 0.3s;
+}
+
+.nav-menu ul li a:hover {
+    color: #d1d1d1;
+}
+
+/* Contact */
+.header-contact a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: "policeCorps";
+    display: flex;
+    align-items: center;
+}
+
+.header-contact .phone-icon {
+    margin-left: 10px;
+    height: 1.2em;
+    width: auto;
+    vertical-align: middle;
+    filter: brightness(0) invert(1);
+}
+
+/* --- CONFIGURATION DESKTOP (Déjà faite précédemment) --- */
+.hamburger, .menu-toggle { display: none; } /* On cache le menu mobile sur PC */
+
+/* --- RESPONSIVE MOBILE / TABLETTE --- */
+@media screen and (max-width: 1024px) {
+    .header-contact { display: none; } /* Cache le texte "Nous contacter" */
+
+    /* Style de l'icône Hamburger (3 barres blanches) */
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 30px;
+        height: 4px;
+        background-color: white;
+        margin: 6px 0;
+        border-radius: 2px;
+    }
+
+    /* Cache le menu par défaut sur mobile */
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 80px; /* Sous le header */
+        left: 0;
+        width: 100%;
+        background-color: #5d6d7e;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    .nav-menu ul {
+        flex-direction: column; /* Menu vertical */
+    }
+
+    .nav-menu ul li {
+        margin: 15px 0;
+    }
+
+    /* Affiche le menu quand on clique sur le hamburger */
+    .menu-toggle:checked ~ .nav-menu {
+        display: block;
+    }
 }

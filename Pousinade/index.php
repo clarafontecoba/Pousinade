@@ -15,14 +15,42 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css"> 
-    <title>Page d'accueil</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>La Pousinade - École des Arts Renaissance</title>
 </head>
 <body>
+<header class="main-header">
+    <div class="header-container">
+        <div class="logo">
+            <img src="css/images/Logo-pousinade-blanc.png" alt="Logo Pousinade">
+        </div>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.php">Accueil</a></li>
+                <li><a href="scripts/actualite.php">Nos Actualités</a></li>
+                <li><a href="scripts/evenements.php">Évènements</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-contact">
+            <a href="scripts/contact.php">
+                Nous contacter <img src="css/images/favicon-phone.png" alt="Téléphone" class="phone-icon">
+            </a>
+        </div>
+    </div>
+</header>
 
     <h1>L'Association</h1>
 
@@ -36,5 +64,6 @@
     
 
     <button onclick="window.location.href = 'https://www.roideloiseau.com/';">Voir le site</button>
+
 </body>
 </html>
