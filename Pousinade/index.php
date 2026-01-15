@@ -1,8 +1,5 @@
 <?php
-    
-    require_once 'configuration/config.php';
-        require_once 'scripts/actualite.php';
-
+    include ('configuration/config.php');
 
     class administrateur {
         public $id_administrateur = 0;
