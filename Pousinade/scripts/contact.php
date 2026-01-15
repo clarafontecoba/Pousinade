@@ -40,11 +40,11 @@
         01 23 45 67 89
     </p>
     <p>
-        <img src="../css/images/mail.svg" alt="Email" width="20" height="20">
+        <img src="../css/images/arobase.svg" alt="Email" width="20" height="20">
         contact@monasso.fr
     </p>
     <p>
-        <img src="../css/images/lieu.svg" alt="Lieu" width="20" height="20">
+        <img src="../css/images/localisation.svg" alt="Lieu" width="20" height="20">
         12 rue de l'Exemple, 75000 Paris
     </p>
     <h1>Formulaire de contact</h1>
