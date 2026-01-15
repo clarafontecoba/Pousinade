@@ -32,6 +32,33 @@
     <title>Contact</title>
 </head>
 <body>
-    
+     <p>
+        <img src="tel.png" alt="Téléphone" width="20" height="20">
+        01 23 45 67 89
+    </p>
+    <p>
+        <img src="mail.png" alt="Email" width="20" height="20">
+        contact@monasso.fr
+    </p>
+    <p>
+        <img src="lieu.png" alt="Lieu" width="20" height="20">
+        12 rue de l'Exemple, 75000 Paris
+    </p>
+    <h1>Formulaire de contact</h1>
+
+    <form action="#" method="post">
+        <p>Votre nom</p>
+        <input type="text" name="nom"><br>
+
+        <p>Votre adresse mail</p>
+        <input type="email" name="email"><br>
+
+        <p>Objet</p>
+        <input type="text" name="objet"><br>
+
+        <p>Votre message</p>
+        <textarea></textarea><br>
+
+        <input type="submit" value="Envoyer">
 </body>
 </html>
