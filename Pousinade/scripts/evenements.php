@@ -64,7 +64,7 @@
 
         <a href="teinture.html" class="carte">
             <h3>Teinture végétale</h3>
-            <img src="../css/images/teinture.png" alt="Teinture végétale">
+            <img src="../css/images/teintures.png" alt="Teinture végétale">
             <p>Découvrir</p>
         </a>
 
