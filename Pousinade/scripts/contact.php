@@ -44,9 +44,13 @@
         lapousinade@gmail.com
     </p>
     <p>
+        <a href="https://www.google.com/maps/place/29+Rue+Raphaël,+43000+Le+Puy-en-Velay/@45.0446238,3.8798594,17z/data=!3m1!4b1!4m6!3m5!1s0x47f5fa550fcfd79f:0x1131a93da8f6b5f9!8m2!3d45.0446238!4d3.8824343!16s%2Fg%2F11c3q4j690?entry=ttu&g_ep=EgoyMDI2MDExMS4wIKXMDSoKLDEwMDc5MjA2N0gBUAM%3D">
         <img src="../css/images/localisation.svg" alt="Lieu" width="20" height="20">
         29 rue Raphaël – 43000 LE PUY-EN-VELAY
+    </a>
+</p>
     <h1>Formulaire de contact</h1>
+
 
     <form action="#" method="post">
         <p>Votre nom</p>
@@ -61,6 +65,6 @@
         <p>Votre message</p>
         <textarea></textarea><br>
 
-        <input type="submit" value="Envoyer">
+        <input  class = "boutonEnvoyer" type="submit" value="Envoyer">
 </body>
 </html>
