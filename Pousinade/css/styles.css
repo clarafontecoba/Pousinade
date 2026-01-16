@@ -91,6 +91,8 @@ a {
     background-color: #A0A045;
     color: white;
 }
+
+/*evenements cartes ateliers*/
 .ateliers {
     text-align: center;
 }
@@ -98,10 +100,13 @@ a {
 .cartes {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+
 }
 
 .carte {
-    width: 200px;
+    width: 220px;
+    margin: 20px;
     padding: 10px;
     background-color: #a7ad4a;
     text-decoration: none;
@@ -116,6 +121,18 @@ a {
     border: 1px solid black;
     padding: 5px;
 }
+@media screen and (max-width: 768px) {
+
+    .cartes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .carte {
+        width: 90%;
+    }
+}
+
 
 /* Header */
 .main-header {
