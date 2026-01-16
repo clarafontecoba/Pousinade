@@ -58,19 +58,19 @@
 
         <a href="danse.html" class="carte">
             <h3>Danse Renaissance</h3>
-            <img src="../css/images/danse.jpg" alt="Danse Renaissance">
+            <img src="../css/images/danse.png" alt="Danse Renaissance">
             <p>Découvrir</p>
         </a>
 
         <a href="teinture.html" class="carte">
             <h3>Teinture végétale</h3>
-            <img src="../css/images/teinture.jpg" alt="Teinture végétale">
+            <img src="../css/images/teinture.png" alt="Teinture végétale">
             <p>Découvrir</p>
         </a>
 
         <a href="tannerie.html" class="carte">
             <h3>Tannerie</h3>
-            <img src="../css/images/tannerie.jpg" alt="Tannerie">
+            <img src="../css/images/cuir.png" alt="Tannerie">
             <p>Découvrir</p>
         </a>
     </div>
