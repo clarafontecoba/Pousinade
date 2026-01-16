@@ -17,8 +17,8 @@ try {
     echo "Erreur : " . $e->getMessage();
 }
 
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,33 +29,33 @@ try {
 </head>
 <body>
     <section class="ateliers">
-    <h2>Nos ateliers</h2>
+        <h2>Nos ateliers</h2>
 
-    <div class="cartes">
-        <a href="calligraphiebis.php" class="carte">
-            <h3>Calligraphie</h3>
-            <img src="../css/images/calligraphie.jpg" alt="Calligraphie">
-            <p>Découvrir</p>
-        </a>
+        <div class="cartes">
+            <a href="calligraphiebis.php" class="carte">
+                <h3>Calligraphie</h3>
+                <img src="../css/images/calligraphie.jpg" alt="Calligraphie">
+                <p>Découvrir</p>
+            </a>
 
-        <a href="danse.php" class="carte">
-            <h3>Danse Renaissance</h3>
-            <img src="../css/images/danse.png" alt="Danse Renaissance">
-            <p>Découvrir</p>
-        </a>
+            <a href="danse.php" class="carte">
+                <h3>Danse Renaissance</h3>
+                <img src="../css/images/danse.png" alt="Danse Renaissance">
+                <p>Découvrir</p>
+            </a>
 
-        <a href="teinture.php" class="carte">
-            <h3>Teinture végétale</h3>
-            <img src="../css/images/teintures.png" alt="Teinture végétale">
-            <p>Découvrir</p>
-        </a>
+            <a href="teinture.php" class="carte">
+                <h3>Teinture végétale</h3>
+                <img src="../css/images/teintures.png" alt="Teinture végétale">
+                <p>Découvrir</p>
+            </a>
 
-        <a href="tannerie.php" class="carte">
-            <h3>Tannerie</h3>
-            <img src="../css/images/cuir.png" alt="Tannerie">
-            <p>Découvrir</p>
-        </a>
-    </div>
-</section>
+            <a href="tannerie.php" class="carte">
+                <h3>Tannerie</h3>
+                <img src="../css/images/cuir.png" alt="Tannerie">
+                <p>Découvrir</p>
+            </a>
+        </div>
+    </section>
 </body>
 </html>

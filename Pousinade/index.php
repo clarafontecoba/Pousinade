@@ -1,36 +1,8 @@
 <?php
 
+    include ('configuration/config.php');
+    include ('class/class_administrateur.php');
 
-include('classes/Database.php');
-include('classes/Actualite.php');
-
-try {
-    // Récupérer toutes les actualités
-    $actualites = Actualite::getAllActualites();
-
-    // Afficher les actualités
-    foreach ($actualites as $actualite) {
-        echo "ID: " . $actualite->getIdActualite() . "<br>";
-        echo "Titre: " . $actualite->getTitre() . "<br>";
-        echo "Résumé: " . $actualite->getResume() . "<br>";
-        echo "Contenu: " . substr($actualite->getContenu(), 0, 100) . "...<br>";
-        echo "Date: " . $actualite->getDatePublication() . "<br><br>";
-    }
-
-
-
-    // Récupérer toutes les actualités
-    $actualite = Actualite::getById(2);
-    echo "Titre de l'act 2: : " . $actualite->getTitre() . "<br>";
-
-
-} catch (Exception $e) {
-    echo "Erreur : " . $e->getMessage();
-}
-
-
-
-    
 ?>
 
 <!DOCTYPE html>
@@ -67,4 +39,9 @@ try {
         </div>
     </div>
 </body>
+<footer>
+    <a href="actualite.php">Actualité</a>
+    <a href="evenements.php">Evénement</a>
+    <a href="contact.php">Contact</a>
+</footer>
 </html>
