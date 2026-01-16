@@ -1,17 +1,6 @@
 <?php
     include ('configuration/config.php');
-
-    class administrateur {
-        public $id_administrateur = 0;
-        public $mot_de_passe = "";
-        public $courriel = "" ;
-
-        public function __construct($i, $m, $c) {
-            $this->id_actualite= $i;
-            $this->mot_de_passe= $m;
-            $this->courriel= $c;
-        }
-    }
+    include ('class/class_administrateur.php');
 ?>
 
 <!DOCTYPE html>
@@ -48,4 +37,9 @@
         </div>
     </div>
 </body>
+<footer>
+    <a href="actualite.php">Actualité</a>
+    <a href="evenements.php">Evénement</a>
+    <a href="contact.php">Contact</a>
+</footer>
 </html>
