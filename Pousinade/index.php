@@ -64,7 +64,7 @@
     <div class="banniereRDO">
         <div class="texte-banniere">
             <h1>Le Roi de l'Oiseau</h1>
-            <button class="boutonVisite" onclick="window.location.href = 'https://www.roideloiseau.com/';">Voir le site</button>
+            <a class="boutonVisite" href = 'https://www.roideloiseau.com/'>Voir le site</a>
         </div>
     </div>
     

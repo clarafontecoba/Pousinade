@@ -9,15 +9,20 @@ class Database
     private $connection;
 
     // Informations de connexion
-    private $host = 'localhost';
-    private $username = 'user';
-    private $password = 'user';
-    private $database = 'pousinade';
-    private $port='3306';
+    private $host;
+    private $username;
+    private $password;
+    private $database;
+    private $port;
 
     // Constructeur privé pour empêcher l'instanciation directe
-    private function __construct()
+    private function __construct($host,$database,$port,$username,$password)
     {
+        $this->host = $host;
+        $this->username = $username;
+        $this->password = $password;
+        $this->database = $database;
+        $this->port = $port;
         try {
             $this->connection = new PDO(
                 "mysql:host={$this->host};dbname={$this->database};port={$this->port}",
@@ -30,15 +35,15 @@ class Database
                 ]
             );
         } catch (PDOException $e) {
-            throw new Exception("Erreur de connexion à la base de données : " . $e->getMessage());
+            throw new Exception("Erreur de connexion2 à la base de données : " . $e->getMessage());
         }
     }
 
     // Méthode pour récupérer l'instance unique
-    public static function getInstance()
+    public static function getInstance($host,$database,$port,$username,$password)
     {
         if (self::$instance === null) {
-            self::$instance = new self();
+            self::$instance = new self($host,$database,$port,$username,$password);
         }
         return self::$instance;
     }
