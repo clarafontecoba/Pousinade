@@ -109,3 +109,27 @@ a {
     border: 1px solid black;
     padding: 5px;
 }
+
+.atelier {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #a7ad4a;
+    padding: 40px;
+}
+
+.texte {
+    width: 50%;
+}
+
+.texte h2 {
+    margin-top: 0;
+}
+
+.image {
+    width: 45%;
+}
+
+.image img {
+    width: 100%;
+}
