@@ -55,6 +55,11 @@ a {
     background-position: center;
 }
 
+.carte {
+    width: 200px;
+    padding: 10px;
+    background-color: #a7ad4a; 
+    text-decoration: none;
 .boutonVisite {
     background-color: white;
     color: black;
