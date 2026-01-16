@@ -1,17 +1,9 @@
 <?php
+
     include ('configuration/config.php');
+    include('classes/Database.php');
+    include('classes/Actualite.php');
 
-    class administrateur {
-        public $id_administrateur = 0;
-        public $mot_de_passe = "";
-        public $courriel = "" ;
-
-        public function __construct($i, $m, $c) {
-            $this->id_actualite= $i;
-            $this->mot_de_passe= $m;
-            $this->courriel= $c;
-        }
-    }
 ?>
 
 <!DOCTYPE html>
@@ -52,6 +44,13 @@
     </div>
 </header>
 
+    <div class="banniere">
+        <div class="texte-banniere">
+            <h1>La Pousinade</h1>
+            <p>Ecole des Arts Renaissance du Roi de l'Oiseau</p>
+        </div>
+    </div>
+
     <h1>L'Association</h1>
 
     <p>La Pousinade vous accueille tout au long de l’année autour de formations qui vous feront revivre les savoir­-faire du XVIème siècle en vous initiant aux Arts de la Renaissance. Venez ainsi découvrir les mystères de l’herboristerie, les saveurs des mets d’antan ou les spécificités du travail de la laine. A moins que vous ne soyez assez fou pour rejoindre les danseurs, les fidèles guerriers lutteurs ou escrimeurs de notre joyeuse école !</p>
@@ -90,4 +89,9 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </body>
+<footer>
+    <a href="actualite.php">Actualité</a>
+    <a href="evenements.php">Evénement</a>
+    <a href="contact.php">Contact</a>
+</footer>
 </html>

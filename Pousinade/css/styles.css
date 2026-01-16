@@ -20,6 +20,12 @@ body {
 
 h1 {
     font-family: "policetitre";
+    color: rgb(255, 255, 255);
+    padding: 2%;
+}
+
+p {
+    padding: 2%;
 }
 
 /* Header */

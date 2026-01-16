@@ -22,6 +22,8 @@
             $this->objet= $o;
         }
     }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -29,23 +31,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css"> 
+    <link rel="stylesheet" href="../css/styles.css"> 
     <title>Contact</title>
 </head>
 <body>
      <p>
-        <img src="tel.png" alt="Téléphone" width="20" height="20">
-        01 23 45 67 89
+        <img src="../css/images/tel.svg" alt="Téléphone" width="20" height="20">
+         04 71 09 38 41
     </p>
     <p>
-        <img src="mail.png" alt="Email" width="20" height="20">
-        contact@monasso.fr
+        <img src="../css/images/arobase.svg" alt="Email" width="20" height="20">
+        lapousinade@gmail.com
     </p>
     <p>
-        <img src="lieu.png" alt="Lieu" width="20" height="20">
-        12 rue de l'Exemple, 75000 Paris
-    </p>
+        <a href="https://www.google.com/maps/place/29+Rue+Raphaël,+43000+Le+Puy-en-Velay/@45.0446238,3.8798594,17z/data=!3m1!4b1!4m6!3m5!1s0x47f5fa550fcfd79f:0x1131a93da8f6b5f9!8m2!3d45.0446238!4d3.8824343!16s%2Fg%2F11c3q4j690?entry=ttu&g_ep=EgoyMDI2MDExMS4wIKXMDSoKLDEwMDc5MjA2N0gBUAM%3D">
+        <img src="../css/images/localisation.svg" alt="Lieu" width="20" height="20">
+        29 rue Raphaël – 43000 LE PUY-EN-VELAY
+    </a>
+</p>
     <h1>Formulaire de contact</h1>
+
 
     <form action="#" method="post">
         <p>Votre nom</p>
@@ -60,6 +65,6 @@
         <p>Votre message</p>
         <textarea></textarea><br>
 
-        <input type="submit" value="Envoyer">
+        <input  class = "boutonEnvoyer" type="submit" value="Envoyer">
 </body>
 </html>
