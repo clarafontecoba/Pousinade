@@ -84,3 +84,52 @@ a {
     background-color: #A0A045;
     color: white;
 }
+.ateliers {
+    text-align: center;
+}
+
+.cartes {
+    display: flex;
+    justify-content: space-around;
+}
+
+.carte {
+    width: 200px;
+    padding: 10px;
+    background-color: #a7ad4a; /* change selon ton design */
+    text-decoration: none;
+    color: black;
+}
+
+.carte img {
+    width: 100%;
+}
+
+.carte p {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.atelier {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #a7ad4a;
+    padding: 40px;
+}
+
+.texte {
+    width: 50%;
+}
+
+.texte h2 {
+    margin-top: 0;
+}
+
+.image {
+    width: 45%;
+}
+
+.image img {
+    width: 100%;
+}

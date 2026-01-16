@@ -1,6 +1,8 @@
 <?php
+
     include ('configuration/config.php');
     include ('class/class_administrateur.php');
+
 ?>
 
 <!DOCTYPE html>
