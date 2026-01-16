@@ -185,7 +185,7 @@ a {
     filter: brightness(0) invert(1);
 }
 
-/* Responsive HEADER */
+/* HEADER */
 .hamburger, .menu-toggle { display: none; } /* cache menu mobile sur PC */
 
 @media screen and (max-width: 1024px) {
