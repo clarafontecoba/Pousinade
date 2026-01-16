@@ -55,12 +55,6 @@ a {
     background-position: center;
 }
 
-.carte {
-    width: 200px;
-    padding: 10px;
-    background-color: #a7ad4a; 
-    text-decoration: none;
-}
 .boutonVisite {
     background-color: white;
     color: black;
@@ -89,4 +83,29 @@ a {
 .boutonEnvoyer:hover {
     background-color: #A0A045;
     color: white;
+}
+.ateliers {
+    text-align: center;
+}
+
+.cartes {
+    display: flex;
+    justify-content: space-around;
+}
+
+.carte {
+    width: 200px;
+    padding: 10px;
+    background-color: #a7ad4a; /* change selon ton design */
+    text-decoration: none;
+    color: black;
+}
+
+.carte img {
+    width: 100%;
+}
+
+.carte p {
+    border: 1px solid black;
+    padding: 5px;
 }
