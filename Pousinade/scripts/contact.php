@@ -1,6 +1,29 @@
 <?php
-    include ('configuration/config.php');
-    include ('class/class_contact.php');
+    include ('../configuration/config.php');
+
+
+
+    class contact {
+        public $id_message = 0;
+        public $nom = "";
+        public $prenom = "" ;
+        public $courriel ="" ;
+        public $message ="" ;
+        public $date_envoi = "";
+        public $objet ="" ;
+
+        public function __construct($i, $n, $p, $c, $m, $d, $o) {
+            $this->id_message= $i;
+            $this->nom= $n;
+            $this->prenom= $p;
+            $this->courriel= $c;
+            $this->message= $m;
+            $this->date_envoi= $d;
+            $this->objet= $o;
+        }
+    }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -44,9 +67,4 @@
 
         <input  class = "boutonEnvoyer" type="submit" value="Envoyer">
 </body>
-<footer>
-    <a href="index.php">Acceuil</a>
-    <a href="actualite.php">Actualité</a>
-    <a href="evenements.php">Evénement</a>ù
-</footer>
 </html>
