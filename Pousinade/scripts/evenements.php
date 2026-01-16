@@ -29,7 +29,7 @@ try {
 </head>
 <body>
     <section class="ateliers">
-        <h2>Nos ateliers</h2>
+        <h2>NOS ATELIERS</h2>
 
         <div class="cartes">
             <a href="calligraphiebis.php" class="carte">
@@ -45,7 +45,7 @@ try {
             </a>
 
             <a href="teinture.php" class="carte">
-                <h1>Teinture végétale</h1>
+                <h1>Teinture vegetale</h1>
                 <img src="../css/images/teintures.png" alt="Teinture végétale">
                 <p>Découvrir</p>
             </a>
