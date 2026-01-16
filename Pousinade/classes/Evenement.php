@@ -1,4 +1,5 @@
 <?php
+include_once('../configuration/config.php');
 class Evenement {
     public $id_evenement = 0;
     public $titre = "";
@@ -57,7 +58,8 @@ class Evenement {
     // Méthode pour récupérer tous les événements
     public static function getAllEvenements(): array
     {
-        $db = Database::getInstance();
+        $config = new Config();
+        $db = Database::getInstance($config->host,$config->database,$config->port,$config->username,$config->password);
         $connection = $db->getConnection();
 
         $stmt = $connection->query("SELECT * FROM evenement ORDER BY date_debut ASC");
@@ -81,7 +83,8 @@ class Evenement {
     // Méthode pour récupérer un événement par son ID
     public static function getById(int $id_evenement): ?Evenement
     {
-        $db = Database::getInstance();
+        $config = new Config();
+        $db = Database::getInstance($config->host,$config->database,$config->port,$config->username,$config->password);
         $connection = $db->getConnection();
 
         $stmt = $connection->prepare("SELECT * FROM evenement WHERE id_evenement = :id_evenement");

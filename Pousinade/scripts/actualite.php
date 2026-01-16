@@ -1,6 +1,6 @@
 <?php
- include('../classes/Database.php');
-include('../classes/Actualite.php');
+ include_once('../classes/Database.php');
+include_once('../classes/Actualite.php');
 
 try {
     // Récupérer toutes les actualités
@@ -8,7 +8,7 @@ try {
 
     // Afficher les actualités
     foreach ($actualites as $actualite) {
-        echo "ID: " . $actualite->getIdActualite() . "<br>";
+        //echo "ID: " . $actualite->getIdActualite() . "<br>";
         echo "Titre: " . $actualite->getTitre() . "<br>";
         echo "Résumé: " . $actualite->getResume() . "<br>";
         echo "Contenu: " . substr($actualite->getContenu(), 0, 100) . "...<br>";

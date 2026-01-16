@@ -1,4 +1,5 @@
 <?php
+include_once('../configuration/config.php');
 
 class Actualite {
     private $id_actualite;
@@ -6,22 +7,8 @@ class Actualite {
     private $resume;
     private $contenu;
     private $date_publication;
-
-    public function __construct(
-        int $id_actualite = null,
-        string $titre = '',
-        ?string $resume = null,
-        string $contenu = '',
-        string $date_publication = ''
-    ) {
-        $this->id_actualite = $id_actualite;
-        $this->titre = $titre;
-        $this->resume = $resume;
-        $this->contenu = $contenu;
-        $this->date_publication = $date_publication;
-    }
-
-    // Getters
+    
+// Getters
     public function getIdActualite(): int
     {
         return $this->id_actualite;
@@ -52,10 +39,11 @@ class Actualite {
     public static function getAllActualites(): array
     {
         
-        $db = Database::getInstance();
+        $config = new Config();
+        $db = Database::getInstance($config->host,$config->database,$config->port,$config->username,$config->password);
         $connection = $db->getConnection();
 
-        try {
+        /*try {
             $stmt = $connection->query("SELECT * FROM actualite ORDER BY date_publication DESC");
             $actualites = [];
             while ($row = $stmt->fetch()) {
@@ -72,33 +60,34 @@ class Actualite {
         
         } catch (Exception $e) {
             echo "Erreur : " . $e->getMessage();
+        }*/
+       
+        try {
+            $stmt = $connection->query("SELECT * FROM actualite ORDER BY date_publication DESC");
+            $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Actualite::class);
+            $actualites = $stmt->fetchAll();
+        } catch (Exception $e) {
+            echo "Erreur : " . $e->getMessage();
         }
-
         return $actualites;
     }
 
     // Méthode pour récupérer une actualité par son ID
     public static function getById(int $id_actualite): ?Actualite
     {
-        $db = Database::getInstance();
+        $config = new Config();    
+        $db = Database::getInstance($config->host,$config->database,$config->port,$config->username,$config->password);
         $connection = $db->getConnection();
 
         $stmt = $connection->prepare("SELECT * FROM actualite WHERE id_actualite = :id_actualite");
         $stmt->bindParam(':id_actualite', $id_actualite, PDO::PARAM_INT);
         $stmt->execute();
-
-        $row = $stmt->fetch();
-        if (!$row) {
+        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Actualite::class);
+        $act = $stmt->fetch();
+        if (!$act) {
             return null; // Retourne null si aucune actualité n'est trouvée
         }
-
-        return new Actualite(
-            $row['id_actualite'],
-            $row['titre'],
-            $row['resume'],
-            $row['contenu'],
-            $row['date_publication']
-        );
+        return $act;
     }
 }
 
