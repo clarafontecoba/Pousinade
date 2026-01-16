@@ -8,6 +8,16 @@
     src: url("polices/helvetica/HelveticaNowDisplay-Black.ttf");
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "policeCorps";
+}
+
 h1 {
     font-family: "policetitre";
     color: rgb(255, 255, 255);
@@ -18,118 +28,197 @@ p {
     padding: 2%;
 }
 
-body {
-    font-family: "policeCorps" ;
-    color: rgb(255, 255, 255);
-    background-color: #000000;
-}
-
-a {
-  text-decoration: none;
-  color: white;
-}
-
-/*CLASSES*/
-.banniere {
-    position: relative; 
-    height: 15rem;
-    background-image: url("images/Fond\ Acceuil.jpg");
-    background-size: cover;
-    background-position: center;
-}
-
-.texte-banniere {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-}
-
-.banniereRDO {
-    position: relative; 
-    height: 20rem;
-    background-image: url("images/RDO.jpg");
-    background-size: cover;
-    background-position: center;
-}
-
-.boutonVisite {
-    background-color: white;
-    color: black;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: "policeCorps";
-}
-
-.boutonVisite:hover {
+/* Header */
+.main-header {
     background-color: #596882;
     color: white;
-}
-
-.boutonEnvoyer {
-    background-color: white;
-    color: black;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 10px 5%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     font-family: "policeCorps";
 }
 
-.boutonEnvoyer:hover {
-    background-color: #A0A045;
-    color: white;
-}
-.ateliers {
-    text-align: center;
-}
-
-.cartes {
+.header-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between; 
+    align-items: center;
 }
 
-.carte {
-    width: 200px;
-    padding: 10px;
-    background-color: #a7ad4a; /* change selon ton design */
+/* Logo */
+.logo img {
+    height: 60px; 
+    border-radius: 50%;
+}
+
+/* Menu de navigation */
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu ul li {
+    margin: 0 20px;
+}
+
+.nav-menu ul li a {
+    color: white;
     text-decoration: none;
-    color: black;
+    font-weight: bold;
+    font-family: "policeCorps";
+    transition: color 0.3s;
 }
 
-.carte img {
-    width: 100%;
+.nav-menu ul li a:hover {
+    color: #d1d1d1;
 }
 
-.carte p {
-    border: 1px solid black;
-    padding: 5px;
+/* Cache "Nous contacter" dans le menu sur desktop (il reste dans header-contact) */
+.nav-menu ul li:last-child {
+    display: none;
 }
 
-.atelier {
+/* Contact */
+.header-contact a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: "policeCorps";
+    display: flex;
+    align-items: center;
+}
+
+.header-contact .phone-icon {
+    margin-left: 10px;
+    height: 0.5em;
+    width: auto;
+    vertical-align: middle;
+    filter: brightness(0) invert(1);
+}
+
+/* Responsive HEADER */
+.hamburger, .menu-toggle { display: none; } /* cache menu mobile sur PC */
+
+@media screen and (max-width: 1024px) {
+    .header-contact { display: none; } 
+
+    /* menu burger*/
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 30px;
+        height: 4px;
+        background-color: white;
+        margin: 6px 0;
+        border-radius: 2px;
+    }
+
+    /* Cache menu par défaut */
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 80px; /* Sous le header */
+        left: 0;
+        width: 100%;
+        background-color: #5d6d7e;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    .nav-menu ul {
+        flex-direction: column; /* Menu vertical */
+    }
+
+    .nav-menu ul li {
+        margin: 15px 0;
+    }
+
+    /* Affiche "Nous contacter" dans le menu burger sur mobile */
+    .nav-menu ul li:last-child {
+        display: block;
+    }
+
+    /* Icone phone */
+    .nav-menu .phone-icon {
+        margin-left: 8px;
+        height: 0.5em;
+        width: auto;
+        vertical-align: middle;
+        filter: brightness(0) invert(1);
+    }
+
+    /* Affiche menu au clic*/
+    .menu-toggle:checked ~ .nav-menu {
+        display: block;
+    }
+}
+
+/* Footer Global */
+.main-footer {
+    background-color: #000;
+    color: #fff;
+    padding: 30px 50px; 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #a7ad4a;
-    padding: 40px;
+    font-family: 'Arial', sans-serif;
 }
 
-.texte {
-    width: 50%;
+/* Icônes RS */
+.footer-icons {
+    display: flex;
+    gap: 15px
 }
 
-.texte h2 {
-    margin-top: 0;
+.footer-icons a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px; 
 }
 
-.image {
-    width: 45%;
+/* Nav */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.image img {
-    width: 100%;
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.6;
 }
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* Mentions Légales */
+.footer-legal a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* Bouton up */
+.footer-scroll a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
