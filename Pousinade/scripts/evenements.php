@@ -1,39 +1,21 @@
 <?php
-    include ('../configuration/config.php');
 
+include('../classes/Database.php');
+include('../classes/Evenement.php');
 
-    class evenement {
-        public $id_evenement = 0;
-        public $titre = "";
-        public $date = "" ;
-        public $prix ="" ;
-        public $descritpion = "";
-
-        public function __construct($i, $t, $d, $p, $de) {
-            $this->id_evenement= $i;
-            $this->titre= $t;
-            $this->date= $d;
-            $this->prix= $p;
-            $this->description= $de;
-        }
+try {
+    $evenements = Evenement::getAllEvenements();
+    foreach ($evenements as $evenement) {
+        echo "ID: " . $evenement->getIdEvenement() . "<br>";
+        echo "Titre: " . $evenement->getTitre() . "<br>";
+        echo "Date de début: " . $evenement->getDateDebut() . "<br>";
+        echo "Date de fin: " . $evenement->getDateFin() . "<br>";
+        echo "Prix: " . ($evenement->getPrix() ?? 'Gratuit') . " €<br>";
+        echo "Description: " . substr($evenement->getDescription(), 0, 100) . "...<br><br>";
     }
-
-    class image {
-        public $id_image = 0;
-        public $id_actualite = 0;
-        public $nom_fichier = "" ;
-        public $chemin ="" ;
-        public $texte_alternatif = "";
-        public $date_telechargement ="";
-
-        public function __construct($ii, $ia, $n, $ta, $dt) {
-            $this->id_image= $ii;
-            $this->id_actualite= $ia;
-            $this->nom_fichier= $n;
-            $this->texte_alternatif= $ta;
-            $this->date_telechargement= $dt;
-        }
-    }
+} catch (Exception $e) {
+    echo "Erreur : " . $e->getMessage();
+}
 
 
 ?>

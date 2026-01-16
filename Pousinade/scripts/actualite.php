@@ -1,22 +1,30 @@
 <?php
-    include ('../configuration/config.php');
+ include('../classes/Database.php');
+include('../classes/Actualite.php');
 
-    class actualite {
-        public $id_actualite = 0;
-        public $titre = "";
-        public $resume = "" ;
-        public $contenu ="" ;
-        public $date_publication ="" ;
+try {
+    // Récupérer toutes les actualités
+    $actualites = Actualite::getAllActualites();
 
-        public function __construct($i, $t, $r, $c, $d) {
-            $this->id_actualite= $i;
-            $this->titre= $t;
-            $this->resume= $r;
-            $this->contenu= $c;
-            $this->date_publication= $d;
-
-        }
+    // Afficher les actualités
+    foreach ($actualites as $actualite) {
+        echo "ID: " . $actualite->getIdActualite() . "<br>";
+        echo "Titre: " . $actualite->getTitre() . "<br>";
+        echo "Résumé: " . $actualite->getResume() . "<br>";
+        echo "Contenu: " . substr($actualite->getContenu(), 0, 100) . "...<br>";
+        echo "Date: " . $actualite->getDatePublication() . "<br><br>";
     }
+
+
+
+    // Récupérer toutes les actualités
+    $actualite = Actualite::getById(2);
+    echo "Titre de l'act 2: : " . $actualite->getTitre() . "<br>";
+
+
+} catch (Exception $e) {
+    echo "Erreur : " . $e->getMessage();
+}
 
 ?>
 

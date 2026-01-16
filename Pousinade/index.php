@@ -1,17 +1,36 @@
 <?php
-    include ('configuration/config.php');
 
-    class administrateur {
-        public $id_administrateur = 0;
-        public $mot_de_passe = "";
-        public $courriel = "" ;
 
-        public function __construct($i, $m, $c) {
-            $this->id_actualite= $i;
-            $this->mot_de_passe= $m;
-            $this->courriel= $c;
-        }
+include('classes/Database.php');
+include('classes/Actualite.php');
+
+try {
+    // Récupérer toutes les actualités
+    $actualites = Actualite::getAllActualites();
+
+    // Afficher les actualités
+    foreach ($actualites as $actualite) {
+        echo "ID: " . $actualite->getIdActualite() . "<br>";
+        echo "Titre: " . $actualite->getTitre() . "<br>";
+        echo "Résumé: " . $actualite->getResume() . "<br>";
+        echo "Contenu: " . substr($actualite->getContenu(), 0, 100) . "...<br>";
+        echo "Date: " . $actualite->getDatePublication() . "<br><br>";
     }
+
+
+
+    // Récupérer toutes les actualités
+    $actualite = Actualite::getById(2);
+    echo "Titre de l'act 2: : " . $actualite->getTitre() . "<br>";
+
+
+} catch (Exception $e) {
+    echo "Erreur : " . $e->getMessage();
+}
+
+
+
+    
 ?>
 
 <!DOCTYPE html>
