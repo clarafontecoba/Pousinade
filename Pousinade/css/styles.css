@@ -11,14 +11,16 @@
 h1 {
     font-family: "policetitre";
     color: rgb(255, 255, 255);
+    padding: 2%;
+}
+
+p {
+    padding: 2%;
 }
 
 body {
     font-family: "policeCorps" ;
     color: rgb(255, 255, 255);
-}
-
-body {
     background-color: #000000;
 }
 
