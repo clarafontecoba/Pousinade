@@ -110,7 +110,7 @@ a {
     padding: 10px;
     background-color: #a7ad4a;
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: black;
 }
 
 .carte img {
@@ -213,6 +213,11 @@ h1 {
     color: #d1d1d1;
 }
 
+/* Cache "Nous contacter" dans le menu sur desktop (il reste dans header-contact) */
+.nav-menu ul li:last-child {
+    display: none;
+}
+
 /* Contact */
 .header-contact a {
     color: white;
@@ -225,7 +230,7 @@ h1 {
 
 .header-contact .phone-icon {
     margin-left: 10px;
-    height: 1.5em;
+    height: 0.5em;
     width: auto;
     vertical-align: middle;
     filter: brightness(0) invert(1);
@@ -295,7 +300,7 @@ h1 {
 
 /* Footer Global */
 .main-footer {
-    background-color: #5d6d7e;
+    background-color: #000;
     color: #fff;
     padding: 30px 50px; 
     display: flex;
@@ -357,50 +362,3 @@ h1 {
     align-items: center;
 }
 
-/* Animation up */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Style */
-.footer-scroll a {
-    color: #fff;
-    text-decoration: none;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
-}
-
-.footer-scroll a:hover {
-    background-color: #fff;
-    color: #000;
-    transform: translateY(-5px);
-}
-
-/*erreurs 404*/
-.erreur {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.erreur h2 {
-    font-size: 80px;
-    margin: 0;
-}
-
-.erreur p {
-    margin: 20px 0;
-}
-
-.erreur a {
-    color: white;
-    text-decoration: underline;
-}
