@@ -15,7 +15,9 @@
 }
 
 body {
-    font-family: "policeCorps";
+    font-family: "policeCorps" ;
+    color: rgb(255, 255, 255);
+    background-color: #000000;
 }
 
 h1 {
@@ -27,6 +29,12 @@ h1 {
 p {
     padding: 2%;
 }
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
 
 /*CLASSES*/
 .banniere {
