@@ -61,8 +61,12 @@
 
     <p>Pour toutes les formations ou stages, l’école de la Pousinade prend en charge la moitié des frais, l’autre moitié restant à la charge du stagiaire sous réserve qu’il s’engage à restituer le savoir-faire acquis durant les fêtes.</p>
     
-
-    <button onclick="window.location.href = 'https://www.roideloiseau.com/';">Voir le site</button>
+    <div class="banniereRDO">
+        <div class="texte-banniere">
+            <h1>Le Roi de l'Oiseau</h1>
+            <button class="boutonVisite" onclick="window.location.href = 'https://www.roideloiseau.com/';">Voir le site</button>
+        </div>
+    </div>
     
     <footer class="main-footer">
   <div class="footer-icons">
@@ -89,9 +93,5 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </body>
-<footer>
-    <a href="actualite.php">Actualité</a>
-    <a href="evenements.php">Evénement</a>
-    <a href="contact.php">Contact</a>
-</footer>
+
 </html>
