@@ -70,16 +70,16 @@
     
     <footer class="main-footer">
   <div class="footer-icons">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="far fa-envelope"></i></a>
+    <a href="https://www.facebook.com/roideloiseauofficiel"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/roideloiseauofficiel"><i class="fab fa-instagram"></i></a>
+    <a href="mailto:lapousinade@gmail.com"><i class="far fa-envelope"></i></a>
   </div>
 
   <ul class="footer-links">
-    <li><a href="#">Accueil</a></li>
-    <li><a href="#">Nos Actualités</a></li>
-    <li><a href="#">Événements</a></li>
-    <li><a href="#">Nous contacter</a></li>
+    <li><a href="index.php">Accueil</a></li>
+    <li><a href="scripts/actualite.php">Nos Actualités</a></li>
+    <li><a href="scripts/evenements.php">Évènements</a></li>
+    <li><a href="scripts/contact.php">Contact</a></li>
   </ul>
 
   <div class="footer-legal">
