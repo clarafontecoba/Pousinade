@@ -26,7 +26,7 @@
 
         <p>Centre Pierre Cardinal – Le Puy en Velay</p>
 
-        <img src="images/calligraphie.jpg" alt="Atelier calligraphie" width="400">
+        <img src="../css/images/calligraphie.jpg" alt="Atelier calligraphie" width="400">
     </section>
 
 </body>
