@@ -67,6 +67,11 @@ h1 {
     color: #d1d1d1;
 }
 
+/* Cache "Nous contacter" dans le menu sur desktop (il reste dans header-contact) */
+.nav-menu ul li:last-child {
+    display: none;
+}
+
 /* Contact */
 .header-contact a {
     color: white;
@@ -79,16 +84,15 @@ h1 {
 
 .header-contact .phone-icon {
     margin-left: 10px;
-    height: 1.2em;
+    height: 0.5em;
     width: auto;
     vertical-align: middle;
     filter: brightness(0) invert(1);
 }
 
-/* --- Responsive HEADER --- */
+/* Responsive HEADER */
 .hamburger, .menu-toggle { display: none; } /* cache menu mobile sur PC */
 
-/* --- RESPONSIVE MOBILE / TABLETTE --- */
 @media screen and (max-width: 1024px) {
     .header-contact { display: none; } 
 
@@ -128,8 +132,87 @@ h1 {
         margin: 15px 0;
     }
 
+    /* Affiche "Nous contacter" dans le menu burger sur mobile */
+    .nav-menu ul li:last-child {
+        display: block;
+    }
+
+    /* Icone phone */
+    .nav-menu .phone-icon {
+        margin-left: 8px;
+        height: 0.5em;
+        width: auto;
+        vertical-align: middle;
+        filter: brightness(0) invert(1);
+    }
+
     /* Affiche menu au clic*/
     .menu-toggle:checked ~ .nav-menu {
         display: block;
     }
 }
+
+/* Footer Global */
+.main-footer {
+    background-color: #000;
+    color: #fff;
+    padding: 30px 50px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Icônes RS */
+.footer-icons {
+    display: flex;
+    gap: 15px
+}
+
+.footer-icons a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px; 
+}
+
+/* Nav */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* Mentions Légales */
+.footer-legal a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* Bouton up */
+.footer-scroll a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

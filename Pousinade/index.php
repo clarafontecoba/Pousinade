@@ -64,6 +64,30 @@
     
 
     <button onclick="window.location.href = 'https://www.roideloiseau.com/';">Voir le site</button>
+    
+    <footer class="main-footer">
+  <div class="footer-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="far fa-envelope"></i></a>
+  </div>
 
+  <ul class="footer-links">
+    <li><a href="#">Accueil</a></li>
+    <li><a href="#">Nos Actualités</a></li>
+    <li><a href="#">Événements</a></li>
+    <li><a href="#">Nous contacter</a></li>
+  </ul>
+
+  <div class="footer-legal">
+    <a href="#">mentions légales</a>
+  </div>
+
+  <div class="footer-scroll">
+    <a href="#"><i class="fas fa-arrow-up"></i></a>
+  </div>
+</footer>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </body>
 </html>
