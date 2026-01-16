@@ -381,3 +381,26 @@ html {
     color: #000;
     transform: translateY(-5px);
 }
+
+/*erreurs 404*/
+.erreur {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.erreur h2 {
+    font-size: 80px;
+    margin: 0;
+}
+
+.erreur p {
+    margin: 20px 0;
+}
+
+.erreur a {
+    color: white;
+    text-decoration: underline;
+}
