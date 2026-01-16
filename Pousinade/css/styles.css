@@ -22,7 +22,6 @@ body {
     background-color: #000000;
 }
 
-/*CLASSES*/
 .banniere {
     position: relative; 
     height: 15rem;
@@ -51,7 +50,7 @@ body {
 .carte {
     width: 200px;
     padding: 10px;
-    background-color: #a7ad4a; /* change selon ton design */
+    background-color: #a7ad4a; 
     text-decoration: none;
     color: black;
 }
