@@ -58,54 +58,40 @@ try {
 ?>
 
 <section class="ateliers">
-        <h1>NOS ATELIERS</h1>
-            <div class="cartes">
-                <?php foreach ($evenements as $evenement) : ?>
-                    
-                    <a href="calligraphiebis.php" class="carte">
-                        <h1><?php echo htmlspecialchars($evenement->getTitre()); ?></h1>
+    <h1>NOS ATELIERS</h1>
 
-                        <img src="../css/images/calligraphie.jpg" alt="Calligraphie">
-
-                        <p>
-                            <?php echo substr(htmlspecialchars($evenement->getDescription()), 0, 100); ?>...
-                        </p>
-
-                        <p class="decouvrir">Découvrir</p>
-                    </a>
-
-                <?php endforeach; ?>
-            </div>
-        <div class="cartes">
+    <div class="ensemblecartes">
+        <?php foreach ($evenements as $evenement) : ?>
             <a href="calligraphiebis.php" class="carte">
 
-                <h1>Calligraphie</h1>
-                <?php echo "Titre: " . $evenement->getTitre() . "<br>"; ?>
-                <img src="../css/images/calligraphie.jpg" alt="Calligraphie">
-                <p>Découvrir</p>
-                <?php echo "Description: " . substr($evenement->getDescription(), 0, 100) . "...<br><br>"; ?>
-            </a>
+                <h1>
+                    <?php echo htmlspecialchars($evenement->getTitre()); ?>
+                </h1>
 
-            <a href="danse.php" class="carte">
-                <h1>Danse Renaissance</h1>
-                <?php echo "Titre: " . $evenement->getTitre() . "<br>"; ?>
-                <img src="../css/images/danse.png" alt="Danse Renaissance">
-                <p>Découvrir</p>
-            </a>
+                <img src="../css/images/calligraphie.jpg" alt="Calligraphie" class="image-atelier">
 
-            <a href="teinture.php" class="carte">
-                <h1>Teinture vegetale</h1>
-                <img src="../css/images/teintures.png" alt="Teinture végétale">
-                <p>Découvrir</p>
-            </a>
+                <div class="infos">
+                    <div class="info">
+                        <img src="../css/images/favicon-phone.png" alt="" class="icon">
+                        <p><?php echo htmlspecialchars($evenement->getDateDebut()); ?></p>
+                    </div>
 
-            <a href="tannerie.php" class="carte">
-                <h1>Tannerie</h1>
-                <img src="../css/images/cuir.png" alt="Tannerie">
-                <p>Découvrir</p>
+                    <div class="info">
+                        <p class="icon-euro">€</p>
+                        <p><?php echo htmlspecialchars($evenement->getPrix() ?? 'Gratuit'); ?></p>
+                    </div>
+                </div>
+
+                <p class="description">
+                    <?php echo substr(htmlspecialchars($evenement->getDescription()), 0, 100); ?>...
+                </p>
+
+                <p class="decouvrir">Découvrir</p>
             </a>
-        </div>
-    </section>
+        <?php endforeach; ?>
+    </div>
+</section>
+
 
     <footer class="main-footer">
   <div class="footer-icons">
