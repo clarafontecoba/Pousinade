@@ -1,5 +1,87 @@
+<?php 
+// Inclusion des classes
+include_once('../classes/Database.php');
+include_once('../classes/Actualite.php');
+
+// Si demande de liste des actualités
+if (isset($_GET['ajax']) && $_GET['ajax'] === '1') {
+    
+    try {
+        $actualites = Actualite::getAllActualites();
+        
+        foreach ($actualites as $actualite) {
+            $titre = $actualite->getTitre();
+            $id = $actualite->getIdActualite();
+            
+            // Choisir l'image selon le type
+            $image = '../css/images/calligraphie.jpg';
+            if (stripos($titre, 'cours') !== false || stripos($titre, 'poterie') !== false) {
+                $image = '../css/images/calligraphie.jpg';
+            } elseif (stripos($titre, 'exposition') !== false || stripos($titre, 'céramique') !== false) {
+                $image = '../css/images/cuir.png';
+            } elseif (stripos($titre, 'stage') !== false || stripos($titre, 'été') !== false) {
+                $image = '../css/images/teintures.png';
+            }
+            
+            echo '<a href="javascript:void(0);" class="carte" onclick="afficherDetail(' . $id . ');">';
+            echo '    <h1>' . htmlspecialchars($titre) . '</h1>';
+            echo '    <img src="' . $image . '" alt="' . htmlspecialchars($titre) . '">';
+            echo '    <p>' . htmlspecialchars($actualite->getResume() ?? substr($actualite->getContenu(), 0, 100)) . '...</p>';
+            echo '</a>';
+        }
+        
+    } catch (Exception $e) {
+        echo '<p>Erreur : ' . htmlspecialchars($e->getMessage()) . '</p>';
+    }
+    
+    exit;
+}
+
+// Si demande de détail d'une actualité
+if (isset($_GET['detail']) && is_numeric($_GET['detail'])) {
+    
+    try {
+        $id = intval($_GET['detail']);
+        $actualite = Actualite::getById($id);
+        
+        if ($actualite) {
+            $titre = $actualite->getTitre();
+            
+            // Choisir l'image
+            $image = '../css/images/calligraphie.jpg';
+            if (stripos($titre, 'cours') !== false || stripos($titre, 'poterie') !== false) {
+                $image = '../css/images/calligraphie.jpg';
+            } elseif (stripos($titre, 'exposition') !== false || stripos($titre, 'céramique') !== false) {
+                $image = '../css/images/cuir.png';
+            } elseif (stripos($titre, 'stage') !== false || stripos($titre, 'été') !== false) {
+                $image = '../css/images/teintures.png';
+            }
+            
+            echo '<div class="detail-actualite">';
+            echo '    <button onclick="retourListe()">← Retour à la liste</button>';
+            echo '    <section class="atelier">';
+            echo '        <div>';
+            echo '            <h2>' . htmlspecialchars($actualite->getTitre()) . '</h2>';
+            echo '            <p>' . nl2br(htmlspecialchars($actualite->getContenu())) . '</p>';
+            echo '            <p><em>Publié le : ' . htmlspecialchars($actualite->getDatePublication()) . '</em></p>';
+            echo '        </div>';
+            echo '        <img src="' . $image . '" alt="' . htmlspecialchars($actualite->getTitre()) . '" width="400">';
+            echo '    </section>';
+            echo '</div>';
+        } else {
+            echo '<p>Actualité non trouvée.</p>';
+        }
+        
+    } catch (Exception $e) {
+        echo '<p>Erreur : ' . htmlspecialchars($e->getMessage()) . '</p>';
+    }
+    
+    exit;
+}
+
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +89,7 @@
     <title>Nos Actualités</title>
 </head>
 <body>
+
 <header class="main-header">
     <div class="header-container">
         <div class="logo">
@@ -36,80 +119,13 @@
     </div>
 </header>
 
-<?php
- include_once('../classes/Database.php');
-include_once('../classes/Actualite.php');
-
-try {
-    // Récupérer toutes les actualités
-    $actualites = Actualite::getAllActualites();
-
-    // Afficher les actualités
-    foreach ($actualites as $actualite) {
-        //echo "ID: " . $actualite->getIdActualite() . "<br>";
-        echo "Titre: " . $actualite->getTitre() . "<br>";
-        echo "Résumé: " . $actualite->getResume() . "<br>";
-        echo "Contenu: " . substr($actualite->getContenu(), 0, 100) . "...<br>";
-        echo "Date: " . $actualite->getDatePublication() . "<br><br>";
-    }
-
-
-
-    // Récupérer toutes les actualités
-    $actualite = Actualite::getById(2);
-    echo "Titre de l'act 2: : " . $actualite->getTitre() . "<br>";
-
-
-} catch (Exception $e) {
-    echo "Erreur : " . $e->getMessage();
-}
-
-?>
-
-<?php
-try {
-    $actualites = Actualite::getAllActualites();
-    ?>
-
-    <section class="actualites">
-        <h1>NOS ACTUALITÉS</h1>
-
-        <div class="ensemble-cartes-actus">
-            <?php foreach ($actualites as $actualite) : ?>
-                
-                <div class="carte-actu">
-                    <h2 class="actu-titre">
-                        <?php echo htmlspecialchars($actualite->getTitre()); ?>
-                    </h2>
-
-                    <p class="actu-date">
-                        <?php echo htmlspecialchars($actualite->getDatePublication()); ?>
-                    </p>
-
-                    <p class="actu-resume">
-                        <?php echo htmlspecialchars($actualite->getResume()); ?>
-                    </p>
-
-                    <p class="actu-contenu">
-                        <?php echo substr(htmlspecialchars($actualite->getContenu()), 0, 100); ?>...
-                    </p>
-
-                    <a href="actualite.php?id=<?php echo $actualite->getIdActualite(); ?>" class="actu-btn">
-                        Lire la suite
-                    </a>
-                </div>
-
-            <?php endforeach; ?>
-        </div>
-    </section>
-
-<?php
-} catch (Exception $e) {
-    echo "Erreur : " . $e->getMessage();
-}
-?>
-
-
+<section class="ateliers">
+    <h1>NOS ACTUALITÉS</h1>
+    
+    <div id="liste-actualites" class="cartes">
+        <p>Chargement des actualités...</p>
+    </div>
+</section>
 
 <footer class="main-footer">
   <div class="footer-icons">
@@ -133,6 +149,49 @@ try {
     <a href="#"><i class="fas fa-arrow-up"></i></a>
   </div>
 </footer>
+
+<script>
+function afficherDetail(id) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'actualite.php?detail=' + id, true);
+    
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            document.getElementById('liste-actualites').innerHTML = xhr.responseText;
+        } else {
+            document.getElementById('liste-actualites').innerHTML = '<p>Erreur lors du chargement.</p>';
+        }
+    };
+    
+    xhr.send();
+}
+
+function retourListe() {
+    chargerActualites();
+}
+
+function chargerActualites() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'actualite.php?ajax=1', true);
+    
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            document.getElementById('liste-actualites').innerHTML = xhr.responseText;
+        } else {
+            document.getElementById('liste-actualites').innerHTML = '<p>Erreur lors du chargement.</p>';
+        }
+    };
+    
+    xhr.onerror = function() {
+        document.getElementById('liste-actualites').innerHTML = '<p>Erreur de connexion.</p>';
+    };
+    
+    xhr.send();
+}
+
+window.onload = chargerActualites;
+</script>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </body>
 </html>

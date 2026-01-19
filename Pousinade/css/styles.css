@@ -106,7 +106,10 @@ a {
 .carte p {
     border: 1px solid black;
     padding: 5px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
+
 @media screen and (max-width: 768px) {
 
     .cartes {

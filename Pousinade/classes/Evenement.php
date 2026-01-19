@@ -8,7 +8,7 @@ class Evenement {
     public $prix ="" ;
     public $descritpion = "";
 
-        // Constructeur
+    // Constructeur
     public function __construct(
         int $id_evenement = null,
         string $titre = '',
@@ -25,7 +25,6 @@ class Evenement {
         $this->description = $description;
     }
 
-    // Getters
     public function getIdEvenement(): int
     {
         return $this->id_evenement;
@@ -54,6 +53,29 @@ class Evenement {
     public function getDescription(): ?string
     {
         return $this->description;
+    }
+
+    // Récupérer l'image liée à l'événement
+    public function getImage(): string
+    {
+        $config = new Config();
+        $db = Database::getInstance($config->host,$config->database,$config->port,$config->username,$config->password);
+        $connection = $db->getConnection();
+
+        $stmt = $connection->prepare("
+            SELECT i.chemin 
+            FROM image i
+            INNER JOIN image_evenement ie ON i.id_image = ie.id_image
+            WHERE ie.id_evenement = :id_evenement
+            LIMIT 1
+        ");
+        $stmt->bindParam(':id_evenement', $this->id_evenement, PDO::PARAM_INT);
+        $stmt->execute();
+        
+        $result = $stmt->fetch();
+        
+        // Retourner le chemin de l'image ou une image par défaut
+        return $result ? $result['chemin'] : '../css/images/calligraphie.jpg';
     }
 
     // Méthode pour récupérer tous les événements
@@ -94,7 +116,7 @@ class Evenement {
 
         $row = $stmt->fetch();
         if (!$row) {
-            return null; // Retourne null si aucun événement n'est trouvé
+            return null;
         }
 
         return new Evenement(

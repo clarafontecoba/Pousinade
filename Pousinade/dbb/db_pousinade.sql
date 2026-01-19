@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 15 jan. 2026 à 11:55
+-- Généré le : lun. 19 jan. 2026 à 16:04
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -130,9 +130,10 @@ CREATE TABLE `evenement` (
 --
 
 INSERT INTO `evenement` (`id_evenement`, `titre`, `date_debut`, `date_fin`, `prix`, `description`) VALUES
-(1, 'Stage de poterie pour débutants', '2025-02-10 09:00:00', '2025-02-14 17:00:00', 150.00, 'Stage intensif de 5 jours pour apprendre les bases de la poterie : préparation de l\'argile, tournage, émaillage et cuisson. Tous les matériaux sont fournis.'),
-(2, 'Exposition \"Terres et Feux\"', '2025-03-01 10:00:00', '2025-03-30 18:00:00', 0.00, 'Exposition collective présentant le travail de 12 céramistes de la région. Entrée libre et gratuite. Visites guidées tous les samedis à 15h.'),
-(3, 'Festival de la Céramique 2025', '2025-05-15 10:00:00', '2025-05-17 19:00:00', 5.00, 'Trois jours de festivités autour de la céramique : marché d\'artisans, démonstrations, ateliers pour enfants, conférences et concerts. Buvette et restauration sur place.');
+(1, 'Danse Renaissance', '2025-02-06 20:15:00', '2025-02-06 22:00:00', 80.00, 'Envie de danser ou de faire danser ? Venez découvrir nos ateliers où branles et pavanes naissent au son du graille catalan, du fifre et du tambour !\n\nNiveau : débutant/intermédiaire\nDate/horaires : un jeudi sur deux (hors congés scolaires) de 20h15 à 22h00\nLieu : Centre Pierre Cardinal – Le Puy en Velay (salle d\'expression au 1er étage)'),
+(2, 'Calligraphie', '2025-02-06 17:30:00', '2025-02-06 20:30:00', 48.00, 'Un travail personnel en dehors des cours sera nécessaire pour évoluer dans cette pratique. Le matériel nécessaire durant les cours sera mis à votre disposition.\n\nNiveau : débutant/intermédiaire\nDate/horaires : le jeudi de 17h30 à 20h30\nLieu : Centre Pierre Cardinal – Le Puy en Velay'),
+(3, 'Teinture Végétale', '2025-07-05 09:00:00', '2025-07-05 17:30:00', 45.00, 'Vous apprendrez à teindre vos tissus, laine, lin, soie, coton et fil de laine sur échantillons après préparation (mordançage) à partir de matières premières végétales connues & employées au XVIème siècle et nous vous donnerons les clés pour teindre de plus grandes surfaces de tissu. Vous découvrirez également comment utiliser des additifs pour modifier le rendu des couleurs.\n\nNiveau : débutant/intermédiaire\nDate/horaires : Samedi 5 juillet 2025 de 9h00 à 17h30 (repas pris sur place)\nLieu : Local des Obragos – 5 rue de Pranaud – ZI de Pranaud – Coubon'),
+(4, 'Travail du cuir', '2025-02-09 08:30:00', '2025-02-09 17:00:00', 900.00, 'La totalité de la formation s\'étendra sur 3 années avec la découverte de nouvelles techniques et la fabrication d\'objets de plus en plus élaborés.\n\nNiveau : débutant\nDate/horaires : Le dimanche de 8h30 à 17h00 (repas tiré du sac)\nLieu : Jules Ferry 29 rue Raphaël – Le Puy en Velay (salle de couture au 1er étage)');
 
 -- --------------------------------------------------------
 
@@ -151,8 +152,9 @@ CREATE TABLE `evenement_admin` (
 
 INSERT INTO `evenement_admin` (`id_evenement`, `id_administrateur`) VALUES
 (1, 1),
-(2, 2),
-(3, 3);
+(2, 1),
+(3, 2),
+(4, 3);
 
 -- --------------------------------------------------------
 
@@ -174,9 +176,10 @@ CREATE TABLE `image` (
 --
 
 INSERT INTO `image` (`id_image`, `id_actualite`, `nom_fichier`, `chemin`, `texte_alternatif`, `date_telechargement`) VALUES
-(1, 0, 'atelier-poterie.jpg', '/uploads/images/atelier-poterie.jpg', 'Atelier de poterie avec des participants', '2026-01-12 22:34:19'),
-(2, 0, 'exposition-ceramique.jpg', '/uploads/images/exposition-ceramique.jpg', 'Exposition de céramiques artisanales', '2026-01-12 22:34:19'),
-(3, 0, 'festival-artisanat.jpg', '/uploads/images/festival-artisanat.jpg', 'Festival de l\'artisanat local', '2026-01-12 22:34:19');
+(1, 0, 'calligraphie.jpg', '../css/images/calligraphie.jpg', 'Atelier de calligraphie médiévale', '2026-01-12 22:34:19'),
+(2, 0, 'cuir.png', '../css/images/cuir.png', 'Travail du cuir artisanal', '2026-01-12 22:34:19'),
+(3, 0, 'danse.png', '../css/images/danse.png', 'Danse Renaissance en costume', '2026-01-12 22:34:19'),
+(4, 0, 'teintures.png', '../css/images/teintures.png', 'Échantillons de teinture végétale', '2026-01-19 15:10:51');
 
 -- --------------------------------------------------------
 
@@ -194,9 +197,10 @@ CREATE TABLE `image_evenement` (
 --
 
 INSERT INTO `image_evenement` (`id_image`, `id_evenement`) VALUES
-(1, 1),
-(2, 2),
-(3, 3);
+(1, 2),
+(2, 4),
+(3, 1),
+(4, 3);
 
 --
 -- Index pour les tables déchargées
@@ -281,13 +285,13 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT pour la table `evenement`
 --
 ALTER TABLE `evenement`
-  MODIFY `id_evenement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_evenement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `image`
 --
 ALTER TABLE `image`
-  MODIFY `id_image` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_image` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Contraintes pour les tables déchargées
