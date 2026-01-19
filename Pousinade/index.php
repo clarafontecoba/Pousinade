@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <title>La Pousinade - École des Arts Renaissance</title>
+    <title>La Pousinade - École  Arts Renaissance</title>
 </head>
 <body>
 <header class="main-header">
