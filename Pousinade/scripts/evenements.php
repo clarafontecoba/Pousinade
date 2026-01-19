@@ -82,9 +82,7 @@ try {
                     </div>
                 </div>
 
-                <p class="description">
-                    <?php echo substr(htmlspecialchars($evenement->getDescription()), 0, 100); ?>...
-                </p>
+                
 
                 <p class="decouvrir">Découvrir</p>
             </a>

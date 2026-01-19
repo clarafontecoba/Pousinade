@@ -27,6 +27,55 @@
             </ul>
         </nav>
 
+        <?php include('../classes/Database.php');
+include('../classes/Evenement.php'); 
+try {
+    $evenements = Evenement::getAllEvenements();
+    foreach ($evenements as $evenement) {
+
+        $evenement->getTitre();
+        $evenement->getDateDebut();
+        $evenement->getDateFin();
+        $evenement->getPrix()  ;
+        $evenement->getDescription();
+    }
+} catch (Exception $e) {
+    echo "Erreur : " . $e->getMessage();
+}
+
+?>
+    
+<section class="pageateliers">
+        <?php foreach ($evenements as $evenement) : ?>
+            <?php if ($evenement->getIdEvenement() == 4) : ?>
+                <h1>
+                    <?php echo htmlspecialchars($evenement->getTitre()); ?>
+                </h1>
+
+                <img src="../css/images/calligraphie.jpg" alt="Calligraphie" class="image-atelier">
+
+                <div class="infos">
+                    <div class="info">
+                        <img src="../css/images/calendrier.svg" alt="" class="icon">
+                        <p><?php echo htmlspecialchars($evenement->getDateDebut()); ?></p>
+                    </div>
+
+                    <div class="info">
+                        <img src="../css/images/euro.svg" alt="" class="icon">
+                        <p><?php echo htmlspecialchars($evenement->getPrix() ?? 'Gratuit'); ?></p>
+                    </div>
+                </div>
+
+                <p class="description">
+                    <?php echo substr(htmlspecialchars($evenement->getDescription()), 0, 100); ?>...
+                </p>
+
+                <p class="decouvrir">Découvrir</p>
+            <?php endif; ?>
+        <?php endforeach; ?>
+
+</section>
+
         <div class="header-contact">
             <a href="contact.php">
                 Nous contacter <img src="../css/images/favicon-phone.png" alt="Téléphone" class="phone-icon">
