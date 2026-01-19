@@ -95,7 +95,7 @@
         <textarea></textarea><br>
 
         <input  class = "boutonEnvoyer" type="submit" value="Envoyer">
-</form>    
+    </form>    
 
         <footer class="main-footer">
   <div class="footer-icons">

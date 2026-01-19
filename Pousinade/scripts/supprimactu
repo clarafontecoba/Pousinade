@@ -1,0 +1,10 @@
+<?php
+
+include('../classes/Database.php');
+
+$db = Database::getConnection();
+$stmt = $db->prepare("DELETE FROM evenement WHERE id_evenement = :id");
+$stmt->execute(['id' => $_GET['id']]);
+
+header("Location: dashboard.php");
+exit;

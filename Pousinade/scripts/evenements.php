@@ -45,11 +45,11 @@ try {
     $evenements = Evenement::getAllEvenements();
     foreach ($evenements as $evenement) {
 
-        echo "Titre: " . $evenement->getTitre() . "<br>";
-        echo "Date de début: " . $evenement->getDateDebut() . "<br>";
-        echo "Date de fin: " . $evenement->getDateFin() . "<br>";
-        echo "Prix: " . ($evenement->getPrix() ?? 'Gratuit') . " €<br>";
-        echo "Description: " . substr($evenement->getDescription(), 0, 100) . "...<br><br>";
+        $evenement->getTitre();
+        $evenement->getDateDebut();
+        $evenement->getDateFin();
+        $evenement->getPrix();
+        $evenement->getDescription();
     }
 } catch (Exception $e) {
     echo "Erreur : " . $e->getMessage();
