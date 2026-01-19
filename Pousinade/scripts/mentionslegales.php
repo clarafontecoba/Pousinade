@@ -35,7 +35,16 @@
     </div>
 </header>
 
+    <h1>Informations Légales</h1>
+      <p>Siège social : 29, rue Raphaël – 43000 Le Puy-en-Velay<br>Site web : www.lapousinade.com<br>Mail : lapousinade@gmail.com<br>Responsable de la publication : Mme Martine CREHANGE</p>
+    
+    <h1>CONCEPTION – REALISATION</h1>
+      <p>Groupe 6 - SAE301 (BUT MMI)</p>
+
+    <h1>HÉBERGEUR</h1>
+      <p>HOSTINGER<br>https://www.hostinger.com</p>
 <footer class="main-footer">
+
   <div class="footer-icons">
     <a href="https://www.facebook.com/roideloiseauofficiel"><i class="fab fa-facebook-f"></i></a>
     <a href="https://www.instagram.com/roideloiseauofficiel"><i class="fab fa-instagram"></i></a>
