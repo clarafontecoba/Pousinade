@@ -1,6 +1,8 @@
 <?php
+
+    include ('configuration/config.php');
     include('classes/Database.php');
-    include('configuration/config.php');
+    include('classes/Actualite.php');
 
 ?>
 
@@ -12,6 +14,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/png" href="css/images/Logo-pousinade-blanc.png">
     <title>La Pousinade - École des Arts Renaissance</title>
+    <link rel="icon" type="image/png" href="css/images/favicon.png">
 </head>
 <body>
 <header class="main-header">
@@ -63,7 +66,7 @@
     <div class="banniereRDO">
         <div class="texte-banniere">
             <h1>Le Roi de l'Oiseau</h1>
-            <a class="boutonVisite" href = 'https://www.roideloiseau.com/'>Voir le site</a>
+            <button class="boutonVisite" onclick="window.location.href = 'https://www.roideloiseau.com/';">Voir le site</button>
         </div>
     </div>
     
@@ -82,7 +85,7 @@
   </ul>
 
   <div class="footer-legal">
-    <a href="scripts/mentionslegales.php">mentions légales</a>
+    <a href="#">mentions légales</a>
   </div>
 
   <div class="footer-scroll">
