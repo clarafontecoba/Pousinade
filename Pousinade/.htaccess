@@ -1,1 +1,1 @@
-errorDocument 404 Pousinade/erreur404.php
+errorDocument 404 /Pousinade/erreur404.php
