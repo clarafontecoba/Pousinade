@@ -35,18 +35,60 @@
         </div>
     </div>
 </header>
-    <section class="ateliers">
-        <h1>NOS ATELIERS</h1>
+    
+    <?php
 
+include('../classes/Database.php');
+include('../classes/Evenement.php');
+
+try {
+    $evenements = Evenement::getAllEvenements();
+    foreach ($evenements as $evenement) {
+
+        echo "Titre: " . $evenement->getTitre() . "<br>";
+        echo "Date de début: " . $evenement->getDateDebut() . "<br>";
+        echo "Date de fin: " . $evenement->getDateFin() . "<br>";
+        echo "Prix: " . ($evenement->getPrix() ?? 'Gratuit') . " €<br>";
+        echo "Description: " . substr($evenement->getDescription(), 0, 100) . "...<br><br>";
+    }
+} catch (Exception $e) {
+    echo "Erreur : " . $e->getMessage();
+}
+
+?>
+
+<section class="ateliers">
+        <h1>NOS ATELIERS</h1>
+            <div class="cartes">
+                <?php foreach ($evenements as $evenement) : ?>
+                    
+                    <a href="calligraphiebis.php" class="carte">
+                        <h1><?php echo htmlspecialchars($evenement->getTitre()); ?></h1>
+
+                        <img src="../css/images/calligraphie.jpg" alt="Calligraphie">
+
+                        <p>
+                            <?php echo substr(htmlspecialchars($evenement->getDescription()), 0, 100); ?>...
+                        </p>
+
+                        <p class="decouvrir">Découvrir</p>
+                    </a>
+
+                <?php endforeach; ?>
+            </div>
         <div class="cartes">
             <a href="calligraphiebis.php" class="carte">
+
                 <h1>Calligraphie</h1>
+                <?php echo "Titre: " . $evenement->getTitre() . "<br>"; ?>
                 <img src="../css/images/calligraphie.jpg" alt="Calligraphie">
                 <p>Découvrir</p>
+                <?php echo "Description: " . substr($evenement->getDescription(), 0, 100) . "...<br><br>"; ?>
             </a>
 
             <a href="danse.php" class="carte">
                 <h1>Danse Renaissance</h1>
+                <?php echo "Titre: " . $evenement->getTitre() . "<br>"; ?>
                 <img src="../css/images/danse.png" alt="Danse Renaissance">
                 <p>Découvrir</p>
             </a>
@@ -64,27 +106,6 @@
             </a>
         </div>
     </section>
-
-    <?php
-
-include('../classes/Database.php');
-include('../classes/Evenement.php');
-
-try {
-    $evenements = Evenement::getAllEvenements();
-    foreach ($evenements as $evenement) {
-        echo "ID: " . $evenement->getIdEvenement() . "<br>";
-        echo "Titre: " . $evenement->getTitre() . "<br>";
-        echo "Date de début: " . $evenement->getDateDebut() . "<br>";
-        echo "Date de fin: " . $evenement->getDateFin() . "<br>";
-        echo "Prix: " . ($evenement->getPrix() ?? 'Gratuit') . " €<br>";
-        echo "Description: " . substr($evenement->getDescription(), 0, 100) . "...<br><br>";
-    }
-} catch (Exception $e) {
-    echo "Erreur : " . $e->getMessage();
-}
-
-?>
 
     <footer class="main-footer">
   <div class="footer-icons">
