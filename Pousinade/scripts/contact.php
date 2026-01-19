@@ -80,12 +80,12 @@
     <h1>Formulaire de contact</h1>
 
 
-    <form action="#" method="post">
+    <form action="Contact.php" method="post" class="formulaire">
         <p>Votre nom</p>
-        <input type="text" name="nom"><br>
+        <input type="text" name="nom" placeholder="Jean Dupont"><br>
 
         <p>Votre adresse mail</p>
-        <input type="email" name="email"><br>
+        <input type="email" name="email" placeholder="jean@gmail.com"><br>
 
         <p>Objet</p>
         <input type="text" name="objet"><br>
@@ -94,6 +94,7 @@
         <textarea></textarea><br>
 
         <input  class = "boutonEnvoyer" type="submit" value="Envoyer">
+</form>    
 
         <footer class="main-footer">
   <div class="footer-icons">
