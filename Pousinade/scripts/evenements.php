@@ -5,28 +5,41 @@ include_once('../classes/Evenement.php');
 
 // Si demande de liste des événements
 if (isset($_GET['ajax']) && $_GET['ajax'] === '1') {
-    
+
     try {
         $evenements = Evenement::getAllEvenements();
-        
+
+        echo '<div class="ensemblecartes">';
+
         foreach ($evenements as $evenement) {
-            $titre = $evenement->getTitre();
             $id = $evenement->getIdEvenement();
-            
-            // Choisir l'image selon le type
+            $titre = $evenement->getTitre();
             $image = $evenement->getImage();
-            
-            echo '<a href="javascript:void(0);" class="carte" onclick="afficherDetail(' . $id . ');">';
-            echo '    <h1>' . htmlspecialchars($titre) . '</h1>';
-            echo '    <img src="' . $image . '" alt="' . htmlspecialchars($titre) . '">';
-            echo '    <p>' . htmlspecialchars(substr($evenement->getDescription(), 0, 100)) . '...</p>';
+
+            echo '<a href="javascript:void(0);" class="carte" onclick="afficherDetail(' . $id . ')">';
+            echo '<img src="' . $image . '" alt="' . htmlspecialchars($titre) . '" class="image-atelier">';
+
+            echo '<div class="infos">';
+            echo '  <div class="info">';
+            echo '      <strong>' . htmlspecialchars($titre) . '</strong>';
+            echo '  </div>';
+            echo '</div>';
+
+            echo '<div class="description">';
+            echo htmlspecialchars(substr($evenement->getDescription(), 0, 100)) . '...';
+            echo '</div>';
+
+            echo '<span class="decouvrir">Découvrir</span>';
+
             echo '</a>';
         }
-        
+
+        echo '</div>'; 
+
     } catch (Exception $e) {
         echo '<p>Erreur : ' . htmlspecialchars($e->getMessage()) . '</p>';
     }
-    
+
     exit;
 }
 

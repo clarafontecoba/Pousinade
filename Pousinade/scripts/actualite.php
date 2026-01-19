@@ -5,14 +5,16 @@ include_once('../classes/Actualite.php');
 
 // Si demande de liste des actualités
 if (isset($_GET['ajax']) && $_GET['ajax'] === '1') {
-    
+
     try {
         $actualites = Actualite::getAllActualites();
-        
+
+        echo '<div class="ensemble-cartes-actus">';
+
         foreach ($actualites as $actualite) {
             $titre = $actualite->getTitre();
             $id = $actualite->getIdActualite();
-            
+
             // Choisir l'image selon le type
             $image = '../css/images/calligraphie.jpg';
             if (stripos($titre, 'cours') !== false || stripos($titre, 'poterie') !== false) {
@@ -22,20 +24,28 @@ if (isset($_GET['ajax']) && $_GET['ajax'] === '1') {
             } elseif (stripos($titre, 'stage') !== false || stripos($titre, 'été') !== false) {
                 $image = '../css/images/teintures.png';
             }
-            
-            echo '<a href="javascript:void(0);" class="carte" onclick="afficherDetail(' . $id . ');">';
-            echo '    <h1>' . htmlspecialchars($titre) . '</h1>';
-            echo '    <img src="' . $image . '" alt="' . htmlspecialchars($titre) . '">';
-            echo '    <p>' . htmlspecialchars($actualite->getResume() ?? substr($actualite->getContenu(), 0, 100)) . '...</p>';
-            echo '</a>';
+
+            echo '<div class="carte-actu" onclick="afficherDetail(' . $id . ')">';
+            echo '    <img src="' . $image . '" alt="' . htmlspecialchars($titre) . '" class="actu-image">';
+            echo '    <h2 class="actu-titre">' . htmlspecialchars($titre) . '</h2>';
+            echo '    <p class="actu-date">' . htmlspecialchars($actualite->getDatePublication()) . '</p>';
+
+            $resume = htmlspecialchars($actualite->getResume() ?? substr($actualite->getContenu(), 0, 100));
+            echo '    <p class="actu-resume">' . $resume . '...</p>';
+
+            echo '    <a href="javascript:void(0);" class="actu-btn" onclick="afficherDetail(' . $id . '); event.stopPropagation();">Lire la suite</a>';
+            echo '</div>';
         }
-        
+
+        echo '</div>';
+
     } catch (Exception $e) {
         echo '<p>Erreur : ' . htmlspecialchars($e->getMessage()) . '</p>';
     }
-    
+
     exit;
 }
+
 
 // Si demande de détail d'une actualité
 if (isset($_GET['detail']) && is_numeric($_GET['detail'])) {
