@@ -246,7 +246,7 @@ h1 {
         top: 80px; /* Sous le header */
         left: 0;
         width: 100%;
-        background-color: #5d6d7e;
+        background-color: #596882;
         text-align: center;
         z-index: 1000;
     }
@@ -257,11 +257,6 @@ h1 {
 
     .nav-menu ul li {
         margin: 15px 0;
-    }
-
-    /* Affiche "Nous contacter" dans le menu burger sur mobile */
-    .nav-menu ul li:last-child {
-        display: block;
     }
 
     /* Icone phone */
@@ -281,7 +276,7 @@ h1 {
 
 /* Footer Global */
 .main-footer {
-    background-color: #5d6d7e;
+    background-color: #596882;
     color: #fff;
     padding: 30px 50px; 
     display: flex;
@@ -348,7 +343,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Style */
+/* Style up */
 .footer-scroll a {
     color: #fff;
     text-decoration: none;

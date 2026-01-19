@@ -82,7 +82,7 @@ try {
   </ul>
 
   <div class="footer-legal">
-    <a href="#">mentions légales</a>
+    <a href="mentionslegales.php">mentions légales</a>
   </div>
 
   <div class="footer-scroll">
