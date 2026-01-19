@@ -63,6 +63,7 @@
         </div>
     </div>
 </header>
+    <h1>Nous contacter</h1>
      <p>
         <img src="../css/images/tel.svg" alt="Téléphone" width="20" height="20">
          04 71 09 38 41

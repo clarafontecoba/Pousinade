@@ -36,7 +36,7 @@
     </div>
 </header>
     <section class="ateliers">
-        <h2>NOS ATELIERS</h2>
+        <h1>NOS ATELIERS</h1>
 
         <div class="cartes">
             <a href="calligraphiebis.php" class="carte">

@@ -1,5 +1,6 @@
 <?php
-include_once('configuration/config.php');
+include_once('../configuration/config.php');
+
 class Evenement {
     public $id_evenement = 0;
     public $titre = "";
