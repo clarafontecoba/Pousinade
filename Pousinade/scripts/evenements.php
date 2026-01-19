@@ -72,12 +72,12 @@ try {
 
                 <div class="infos">
                     <div class="info">
-                        <img src="../css/images/favicon-phone.png" alt="" class="icon">
+                        <img src="../css/images/calendrier.svg" alt="" class="icon">
                         <p><?php echo htmlspecialchars($evenement->getDateDebut()); ?></p>
                     </div>
 
                     <div class="info">
-                        <p class="icon-euro">€</p>
+                        <img src="../css/images/euro.svg" alt="" class="icon">
                         <p><?php echo htmlspecialchars($evenement->getPrix() ?? 'Gratuit'); ?></p>
                     </div>
                 </div>

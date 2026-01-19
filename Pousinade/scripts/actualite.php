@@ -66,6 +66,50 @@ try {
 
 ?>
 
+<?php
+try {
+    $actualites = Actualite::getAllActualites();
+    ?>
+
+    <section class="actualites">
+        <h1>NOS ACTUALITÉS</h1>
+
+        <div class="ensemble-cartes-actus">
+            <?php foreach ($actualites as $actualite) : ?>
+                
+                <div class="carte-actu">
+                    <h2 class="actu-titre">
+                        <?php echo htmlspecialchars($actualite->getTitre()); ?>
+                    </h2>
+
+                    <p class="actu-date">
+                        <?php echo htmlspecialchars($actualite->getDatePublication()); ?>
+                    </p>
+
+                    <p class="actu-resume">
+                        <?php echo htmlspecialchars($actualite->getResume()); ?>
+                    </p>
+
+                    <p class="actu-contenu">
+                        <?php echo substr(htmlspecialchars($actualite->getContenu()), 0, 100); ?>...
+                    </p>
+
+                    <a href="actualite.php?id=<?php echo $actualite->getIdActualite(); ?>" class="actu-btn">
+                        Lire la suite
+                    </a>
+                </div>
+
+            <?php endforeach; ?>
+        </div>
+    </section>
+
+<?php
+} catch (Exception $e) {
+    echo "Erreur : " . $e->getMessage();
+}
+?>
+
+
 
 <footer class="main-footer">
   <div class="footer-icons">
