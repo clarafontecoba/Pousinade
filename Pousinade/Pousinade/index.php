@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <title>La Pousinade - École des Arts Renaissance</title>
+    <link rel="icon" type="image/x-icon" href="../css/images/Logo-pousinade-blanc.png">
 </head>
 <body>
 <header class="main-header">
