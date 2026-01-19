@@ -30,12 +30,7 @@ class Database
                 ]
             );
         } catch (PDOException $e) {
-            catch (PDOException $e) {
-            http_response_code(404);
-            include __DIR__ . '/../scripts/erreur404.php';
-            exit;
-}
-
+            throw new Exception("Erreur de connexion à la base de données : " . $e->getMessage());
         }
     }
 
