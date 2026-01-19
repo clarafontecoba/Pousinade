@@ -1,6 +1,4 @@
 <?php
-
-    include ('configuration/config.php');
     include('classes/Database.php');
     include('classes/Actualite.php');
 
