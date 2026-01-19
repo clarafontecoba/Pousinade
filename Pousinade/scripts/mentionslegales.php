@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Calligraphie</title>
+    <title>Mentions Légales</title>
         <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
