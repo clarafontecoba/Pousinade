@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Erreur 404</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" href="css/images/favicon.png">
 </head>
 <body>
 
