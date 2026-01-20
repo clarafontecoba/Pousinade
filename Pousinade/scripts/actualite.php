@@ -141,7 +141,7 @@ if (isset($_GET['detail']) && is_numeric($_GET['detail'])) {
 
         <div class="header-contact">
             <a href="contact.php">
-                Nous contacter <img src="../css/images/favicon-phone.png" alt="Téléphone" class="phone-icon">
+                Nous contacter <img src="../css/images/favicon-phone.webp" alt="Téléphone" class="phone-icon">
             </a>
         </div>
     </div>
