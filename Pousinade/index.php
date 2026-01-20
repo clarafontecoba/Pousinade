@@ -17,7 +17,7 @@
 <header class="main-header">
     <div class="header-container">
         <div class="logo">
-            <img src="css/images/Logo-pousinade-blanc.png" alt="Logo Pousinade">
+            <img src="css/images/Logo-pousinade-blanc.webp" alt="Logo Pousinade">
         </div>
 
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
@@ -37,7 +37,7 @@
 
         <div class="header-contact">
             <a href="scripts/contact.php">
-                Nous contacter <img src="css/images/favicon-phone.png" alt="Téléphone" class="phone-icon">
+                Nous contacter <img src="css/images/favicon-phone.webp" alt="Téléphone" class="phone-icon">
             </a>
         </div>
     </div>
