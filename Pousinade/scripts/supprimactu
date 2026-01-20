@@ -1,10 +1,27 @@
 <?php
 
 include('../classes/Database.php');
+include('../configuration/config.php');
 
-$db = Database::getConnection();
-$stmt = $db->prepare("DELETE FROM evenement WHERE id_evenement = :id");
-$stmt->execute(['id' => $_GET['id']]);
+$config = new Config();
+$db = Database::getInstance(
+    $config->host,
+    $config->database,
+    $config->port,
+    $config->username,
+    $config->password
+)->getConnection();
+
+$id = (int) $_GET['id'];
+
+$stmt = $db->prepare("
+    DELETE FROM actualite 
+    WHERE id_actualite = :id
+");
+
+$stmt->execute([
+    ':id' => $id
+]);
 
 header("Location: dashboard.php");
 exit;
