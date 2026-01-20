@@ -41,10 +41,11 @@ a {
 .banniere {
     position: relative; 
     height: 15rem;
-    background-image: url("images/fond-acceuil.jpg");
+    background-image: url("images/fond-acceuil.webp");
     background-size: cover;
     background-position: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    
+    
 }
 
 .texte-banniere {
@@ -54,14 +55,16 @@ a {
     transform: translate(-50%, -50%);
     color: white;
     text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 .banniereRDO {
     position: relative; 
     height: 20rem;
-    background-image: url("images/RDO.jpg");
+    background-image: url("images/RDO.webp");
     background-size: cover;
     background-position: center;
+    
 }
 
 .boutonVisite {

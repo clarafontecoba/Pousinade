@@ -17,13 +17,13 @@ if (isset($_GET['ajax']) && $_GET['ajax'] === '1') {
             $id = $actualite->getIdActualite();
 
             // Choisir l'image selon le type
-            $image = '../css/images/calligraphie.jpg';
+            $image = '../css/images/calligraphie.webp';
             if (stripos($titre, 'cours') !== false || stripos($titre, 'poterie') !== false) {
-                $image = '../css/images/calligraphie.jpg';
+                $image = '../css/images/calligraphie.webp';
             } elseif (stripos($titre, 'exposition') !== false || stripos($titre, 'céramique') !== false) {
-                $image = '../css/images/cuir.png';
+                $image = '../css/images/cuir.webp';
             } elseif (stripos($titre, 'stage') !== false || stripos($titre, 'été') !== false) {
-                $image = '../css/images/teintures.png';
+                $image = '../css/images/teintures.webp';
             }
 
             echo '<div class="carte-actu" onclick="afficherDetail(' . $id . ')">';
