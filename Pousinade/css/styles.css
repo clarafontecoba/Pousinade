@@ -78,7 +78,7 @@ a {
 }
 
 
-/*evenements cartes ateliers*/
+/*evenements cartes ateliers
 .ateliers {
     text-align: center;
 }
@@ -153,8 +153,170 @@ h1 {
 
 .image img {
     width: 100%;
+}*/
+/*Evenements cartes ateliers*/
+.ateliers {
+    padding: 60px 20px;
+    
 }
 
+.ateliers h1 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+/* Cartes responsive */
+.ensemblecartes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+    justify-content: center;
+}
+
+
+
+/* Carte individuelle*/
+.carte {
+    flex: 1;
+    background-color: #a6a84a;
+    padding: 25px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+    border-radius: 5px;
+}
+
+.carte:hover {
+    transform: translateY(-6px);
+}
+
+
+/* Image */
+.image-atelier {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 25px;
+}
+
+/* Infos */
+.infos {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.icon {
+    width: 20px;
+}
+
+/* Description */
+.description {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Bouton */
+.decouvrir {
+    margin-top: auto;
+    padding: 10px 25px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    font-family: "policeCorps";
+}
+
+.decouvrir:hover {
+    background-color: #000000;
+    color: white;
+    
+}
+
+/*Actualités */
+.actualites {
+    padding: 60px 20px;
+}
+
+.actualites h1 {
+    text-align: center;
+    margin-bottom: 40px;
+
+}
+
+.ensemble-cartes-actus {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+    justify-content: center;
+    
+}
+
+/* Carte */
+.carte-actu {
+    background: #a6a84a;
+    padding: 25px;
+    flex: 1 ;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.carte-actu:hover {
+    transform: translateY(-6px);
+}
+
+/* Titre */
+.actu-titre {
+    margin-bottom: 10px;
+    font-family: "policetitre";
+}
+
+/* Date */
+.actu-date {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Résumé */
+.actu-resume {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Contenu */
+.actu-contenu {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+/* Bouton */
+.actu-btn {
+    margin-top: auto;
+    padding: 10px 25px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    font-family: "policeCorps";
+    text-align: center;
+}
+
+.actu-btn:hover {
+    background-color: #000000;
+    color: white;
+}
 
 
 /* Header */
