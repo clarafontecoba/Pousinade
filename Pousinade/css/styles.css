@@ -37,12 +37,15 @@ a {
 
 
 /*CLASSES*/
+/*Page d'accueil */
 .banniere {
     position: relative; 
     height: 15rem;
-    background-image: url("images/fond-acceuil.jpg");
+    background-image: url("images/fond-acceuil.webp");
     background-size: cover;
     background-position: center;
+    
+    
 }
 
 .texte-banniere {
@@ -52,14 +55,16 @@ a {
     transform: translate(-50%, -50%);
     color: white;
     text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 .banniereRDO {
     position: relative; 
     height: 20rem;
-    background-image: url("images/RDO.jpg");
+    background-image: url("images/RDO.webp");
     background-size: cover;
     background-position: center;
+    
 }
 
 .boutonVisite {
@@ -78,82 +83,6 @@ a {
 }
 
 
-/*evenements cartes ateliers
-.ateliers {
-    text-align: center;
-}
-
-.cartes {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-
-}
-
-.carte {
-    width: 220px;
-    margin: 20px;
-    padding: 10px;
-    background-color: #a7ad4a;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-}
-
-.carte img {
-    width: 100%;
-}
-
-.carte p {
-    border: 1px solid black;
-    padding: 5px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-@media screen and (max-width: 768px) {
-
-    .cartes {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .carte {
-        width: 90%;
-    }
-}
-body {
-    margin: 0;
-    background-color: black;
-    color: white;
-}
-
-h1 {
-    margin: 20px;
-}
-
-.atelier {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #a7ad4a;
-    padding: 40px;
-}
-
-.texte {
-    width: 50%;
-}
-
-.texte h2 {
-    margin-top: 0;
-}
-
-.image {
-    width: 45%;
-}
-
-.image img {
-    width: 100%;
-}*/
 /*Evenements cartes ateliers*/
 .ateliers {
     padding: 60px 20px;
@@ -316,6 +245,92 @@ h1 {
 .actu-btn:hover {
     background-color: #000000;
     color: white;
+}
+
+/* =========================
+   PAGE DÉTAIL ÉVÉNEMENT
+========================= */
+
+.detail-evenement {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 20px;
+    background: #a6a84a;
+    border-radius: 5px;
+}
+
+.retour {
+    margin-bottom: 30px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Bloc principal */
+.atelier-detail {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+/* Texte */
+.contenu-detail {
+    flex: 1;
+}
+
+.contenu-detail h2 {
+    font-family: "policetitre";
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.description-detail {
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Infos icônes */
+.infos-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.info-detail {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+}
+
+.info-detail img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Image */
+.image-detail {
+    flex: 1;
+    text-align: right;
+}
+
+.image-detail img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 5px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .atelier-detail {
+        flex-direction: column;
+    }
+
+    .image-detail {
+        text-align: center;
+    }
 }
 
 

@@ -5,12 +5,13 @@ include_once('../classes/Actualite.php');
 // Si l'utilisateur clique sur une carte, ce bloc s'exécute
 
 if (isset($_GET['detail']) && is_numeric($_GET['detail'])) {
-    
+
     try {
         $id = intval($_GET['detail']);
         $actualite = Actualite::getById($id);
-        
+
         if ($actualite) {
+
             // Utiliser getImage() pour récupérer l'image depuis la BDD
             $image = $actualite->getImage();
             
@@ -19,22 +20,36 @@ if (isset($_GET['detail']) && is_numeric($_GET['detail'])) {
             echo '    <section class="atelier">';
             echo '        <div>';
             echo '            <h2>' . htmlspecialchars($actualite->getTitre()) . '</h2>';
-            echo '            <p>' . nl2br(htmlspecialchars($actualite->getContenu())) . '</p>';
-            echo '            <p><em>Publié le : ' . htmlspecialchars($actualite->getDatePublication()) . '</em></p>';
+            echo '            <p class="description-detail">' . nl2br(htmlspecialchars($actualite->getContenu())) . '</p>';
+
+            echo '            <div class="infos-detail">';
+
+            // Date de publication (reprend le style date événement)
+            echo '                <div class="info-detail">';
+            echo '    <p class="actu-date">' . htmlspecialchars($actualite->getDatePublication()) . '</p>';
+            echo '                </div>';
+
+            echo '            </div>';
             echo '        </div>';
-            echo '        <img src="' . $image . '" alt="' . htmlspecialchars($actualite->getTitre()) . '" width="400">';
+
+            echo '        <div class="image-detail">';
+            echo '            <img src="' . $image . '" alt="' . htmlspecialchars($actualite->getTitre()) . '">';
+            echo '        </div>';
+
             echo '    </section>';
             echo '</div>';
+
         } else {
             echo '<p>Actualité non trouvée.</p>';
         }
-        
+
     } catch (Exception $e) {
         echo '<p>Erreur : ' . htmlspecialchars($e->getMessage()) . '</p>';
     }
-    
+
     exit;
 }
+
 
 ?>
 <!DOCTYPE html>
@@ -50,7 +65,7 @@ if (isset($_GET['detail']) && is_numeric($_GET['detail'])) {
 <header class="main-header">
     <div class="header-container">
         <div class="logo">
-            <img src="../css/images/Logo-pousinade-blanc.png" alt="Logo Pousinade">
+            <img src="../css/images/Logo-pousinade-blanc.webp" alt="Logo Pousinade">
         </div>
 
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
@@ -70,7 +85,7 @@ if (isset($_GET['detail']) && is_numeric($_GET['detail'])) {
 
         <div class="header-contact">
             <a href="contact.php">
-                Nous contacter <img src="../css/images/favicon-phone.png" alt="Téléphone" class="phone-icon">
+                Nous contacter <img src="../css/images/favicon-phone.webp" alt="Téléphone" class="phone-icon">
             </a>
         </div>
     </div>

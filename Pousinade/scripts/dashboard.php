@@ -22,7 +22,7 @@ $db = $dbInstance->getConnection();
 
 /* Récupération des actualités */
 $actualites = $db
-    ->query("SELECT * FROM evenement ORDER BY id_evenement DESC")
+    ->query("SELECT * FROM actualite ORDER BY id_actualite DESC")
     ->fetchAll();
 ?>
 <!DOCTYPE html>
@@ -41,25 +41,32 @@ $actualites = $db
 <a href="deconnexion.php">Se déconnecter</a>
 
 
-<form action="ajoutactu.php" method="post" class='formulaire'>
+<form action="ajoutactu.php" method="post" class="formulaire">
     <h2>Ajouter une actualité</h2>
+
     <input type="text" name="titre" placeholder="Titre" required>
-    <textarea name="description" placeholder="Description" required></textarea>
-    <input type="date" name="date_debut" required>
-    <input type="number" name="prix" step="0.01">
-    <button type="submit" class = "boutonEnvoyer">Ajouter</button>
+
+    <textarea name="resume" placeholder="Résumé " required></textarea>
+
+    <textarea name="contenu" placeholder="Contenu de l’actualité" required></textarea>
+
+    <input type="date" name="date_publication" required>
+
+    <button type="submit" class="boutonEnvoyer">Ajouter</button>
 </form>
+
 
 <h2>Actualités existantes</h2>
 <div class="actus-admin">
     <?php foreach ($actualites as $actu) : ?>
-        <div class="carte-admin">
-            <strong><?= htmlspecialchars($actu['titre']) ?></strong>
-            <div class="actions">
-                <a class="modifier" href="modifactu.php?id=<?= (int)$actu['id'] ?>">Modifier</a>
-                <a class="supprimer" href="supprimactu.php?id=<?= (int)$actu['id'] ?>" 
-                   onclick="return confirm('Supprimer ?')">Supprimer</a>
-            </div>
+    <div class="carte-admin">
+        <strong><?= htmlspecialchars($actu['titre']) ?></strong>
+        <div class="actions">
+            <a class="modifier" href="modifactu.php?id=<?= (int)$actu['id_actualite'] ?>">Modifier</a>
+            <a class="supprimer" href="supprimactu.php?id=<?= (int)$actu['id_actualite'] ?>" 
+               onclick="return confirm('Supprimer ?')">Supprimer</a>
         </div>
-    <?php endforeach; ?>
+    </div>
+<?php endforeach; ?>
+
 </div>

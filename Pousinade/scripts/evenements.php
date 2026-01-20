@@ -5,72 +5,104 @@ include_once('../classes/Evenement.php');
 
 // Si demande de liste des événements
 if (isset($_GET['ajax']) && $_GET['ajax'] === '1') {
-    
+
     try {
         $evenements = Evenement::getAllEvenements();
-        
+
+        echo '<div class="ensemblecartes">';
+
         foreach ($evenements as $evenement) {
-            $titre = $evenement->getTitre();
             $id = $evenement->getIdEvenement();
-            
-            // Choisir l'image selon le type
+            $titre = $evenement->getTitre();
             $image = $evenement->getImage();
-            
-            echo '<a href="javascript:void(0);" class="carte" onclick="afficherDetail(' . $id . ');">';
-            echo '    <h1>' . htmlspecialchars($titre) . '</h1>';
-            echo '    <img src="' . $image . '" alt="' . htmlspecialchars($titre) . '">';
-            echo '    <p>' . htmlspecialchars(substr($evenement->getDescription(), 0, 100)) . '...</p>';
+
+            echo '<a href="javascript:void(0);" class="carte" onclick="afficherDetail(' . $id . ')">';
+            echo '<img src="' . $image . '" alt="' . htmlspecialchars($titre) . '" class="image-atelier">';
+
+            echo '<div class="infos">';
+            echo '  <div class="info">';
+            echo '      <strong>' . htmlspecialchars($titre) . '</strong>';
+            echo '  </div>';
+            echo '</div>';
+
+            echo '<div class="description">';
+            echo htmlspecialchars(substr($evenement->getDescription(), 0, 100)) . '...';
+            echo '</div>';
+
+            echo '<p class="decouvrir">Découvrir</p>';
+
             echo '</a>';
         }
-        
+
+        echo '</div>'; 
+
     } catch (Exception $e) {
         echo '<p>Erreur : ' . htmlspecialchars($e->getMessage()) . '</p>';
     }
-    
+
     exit;
 }
 
 // Si demande de détail d'un événement
 if (isset($_GET['detail']) && is_numeric($_GET['detail'])) {
-    
+
     try {
         $id = intval($_GET['detail']);
         $evenement = Evenement::getById($id);
-        
+
         if ($evenement) {
-            $titre = $evenement->getTitre();
-            
-            // Choisir l'image
+
             $image = $evenement->getImage();
-            
+
             echo '<div class="detail-evenement">';
-            echo '    <button onclick="retourListe()">← Retour à la liste</button>';
-            echo '    <section class="atelier">';
-            echo '        <div>';
+
+            echo '    <button class="retour" onclick="retourListe()">← Retour à la liste</button>';
+
+            echo '    <section class="atelier-detail">';
+
+            echo '        <div class="contenu-detail">';
             echo '            <h2>' . htmlspecialchars($evenement->getTitre()) . '</h2>';
-            echo '            <p>' . nl2br(htmlspecialchars($evenement->getDescription())) . '</p>';
-            echo '            <p><strong>Date début :</strong> ' . htmlspecialchars($evenement->getDateDebut()) . '</p>';
-            echo '            <p><strong>Date fin :</strong> ' . htmlspecialchars($evenement->getDateFin()) . '</p>';
-            
+            echo '            <p class="description-detail">' . nl2br(htmlspecialchars($evenement->getDescription())) . '</p>';
+
+            echo '            <div class="infos-detail">';
+
+            // Date
+            echo '                <div class="info-detail">';
+            echo '                    <img src="../css/images/calendrier.svg" alt="Calendrier">';
+            echo '                    <span>' . htmlspecialchars($evenement->getDateDebut()) . ' → ' . htmlspecialchars($evenement->getDateFin()) . '</span>';
+            echo '                </div>';
+
+            // Prix
             $prix = $evenement->getPrix();
-            if ($prix !== null) {
-                echo '            <p><strong>Prix :</strong> ' . number_format($prix, 2) . ' €</p>';
-            } else {
-                echo '            <p><strong>Prix :</strong> Gratuit</p>';
-            }
-            
+            echo '                <div class="info-detail">';
+            echo '                    <img src="../css/images/euro.svg" alt="Prix">';
+            echo '                    <span>' . ($prix !== null ? number_format($prix, 2) . ' €' : 'Gratuit') . '</span>';
+            echo '                </div>';
+
+            // Lieu 
+            echo '                <div class="info-detail">';
+            echo '                    <img src="../css/images/localisation.svg" alt="Lieu">';
+            echo '                    <p>La Pousinade</p>';
+            echo '                </div>';
+
+            echo '            </div>';
             echo '        </div>';
-            echo '        <img src="' . $image . '" alt="' . htmlspecialchars($evenement->getTitre()) . '" width="400">';
+
+            echo '        <div class="image-detail">';
+            echo '            <img src="' . $image . '" alt="' . htmlspecialchars($evenement->getTitre()) . '">';
+            echo '        </div>';
+
             echo '    </section>';
             echo '</div>';
+
         } else {
             echo '<p>Événement non trouvé.</p>';
         }
-        
+
     } catch (Exception $e) {
         echo '<p>Erreur : ' . htmlspecialchars($e->getMessage()) . '</p>';
     }
-    
+
     exit;
 }
 
@@ -88,7 +120,7 @@ if (isset($_GET['detail']) && is_numeric($_GET['detail'])) {
 <header class="main-header">
     <div class="header-container">
         <div class="logo">
-            <img src="../css/images/Logo-pousinade-blanc.png" alt="Logo Pousinade">
+            <img src="../css/images/Logo-pousinade-blanc.webp" alt="Logo Pousinade">
         </div>
 
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
@@ -108,7 +140,7 @@ if (isset($_GET['detail']) && is_numeric($_GET['detail'])) {
 
         <div class="header-contact">
             <a href="contact.php">
-                Nous contacter <img src="../css/images/favicon-phone.png" alt="Téléphone" class="phone-icon">
+                Nous contacter <img src="../css/images/favicon-phone.webp" alt="Téléphone" class="phone-icon">
             </a>
         </div>
     </div>
