@@ -121,7 +121,7 @@ if (isset($_GET['detail']) && is_numeric($_GET['detail'])) {
 <header class="main-header">
     <div class="header-container">
         <div class="logo">
-            <img src="../css/images/Logo-pousinade-blanc.png" alt="Logo Pousinade">
+            <img src="../css/images/Logo-pousinade-blanc.webp" alt="Logo Pousinade">
         </div>
 
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
