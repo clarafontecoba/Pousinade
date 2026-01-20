@@ -9,6 +9,7 @@ if (isset($_GET['ajax']) && $_GET['ajax'] === '1') {
     try {
         $actualites = Actualite::getAllActualites();
 
+
         echo '<div class="ensemble-cartes-actus">';
 
         foreach ($actualites as $actualite) {
@@ -46,17 +47,17 @@ if (isset($_GET['ajax']) && $_GET['ajax'] === '1') {
     exit;
 }
 
-
 // Si demande de détail d'une actualité
 if (isset($_GET['detail']) && is_numeric($_GET['detail'])) {
-    
+
     try {
         $id = intval($_GET['detail']);
         $actualite = Actualite::getById($id);
-        
+
         if ($actualite) {
+
             $titre = $actualite->getTitre();
-            
+
             // Choisir l'image
             $image = '../css/images/calligraphie.jpg';
             if (stripos($titre, 'cours') !== false || stripos($titre, 'poterie') !== false) {
@@ -66,28 +67,45 @@ if (isset($_GET['detail']) && is_numeric($_GET['detail'])) {
             } elseif (stripos($titre, 'stage') !== false || stripos($titre, 'été') !== false) {
                 $image = '../css/images/teintures.png';
             }
-            
-            echo '<div class="detail-actualite">';
-            echo '    <button onclick="retourListe()">← Retour à la liste</button>';
-            echo '    <section class="atelier">';
-            echo '        <div>';
+
+            echo '<div class="detail-evenement">';
+
+            echo '    <button class="retour" onclick="retourListe()">← Retour à la liste</button>';
+
+            echo '    <section class="atelier-detail">';
+
+            echo '        <div class="contenu-detail">';
             echo '            <h2>' . htmlspecialchars($actualite->getTitre()) . '</h2>';
-            echo '            <p>' . nl2br(htmlspecialchars($actualite->getContenu())) . '</p>';
-            echo '            <p><em>Publié le : ' . htmlspecialchars($actualite->getDatePublication()) . '</em></p>';
+            echo '            <p class="description-detail">' . nl2br(htmlspecialchars($actualite->getContenu())) . '</p>';
+
+            echo '            <div class="infos-detail">';
+
+            // Date de publication (reprend le style date événement)
+            echo '                <div class="info-detail">';
+            echo '    <p class="actu-date">' . htmlspecialchars($actualite->getDatePublication()) . '</p>';
+            echo '                </div>';
+
+            echo '            </div>';
             echo '        </div>';
-            echo '        <img src="' . $image . '" alt="' . htmlspecialchars($actualite->getTitre()) . '" width="400">';
+
+            echo '        <div class="image-detail">';
+            echo '            <img src="' . $image . '" alt="' . htmlspecialchars($actualite->getTitre()) . '">';
+            echo '        </div>';
+
             echo '    </section>';
             echo '</div>';
+
         } else {
             echo '<p>Actualité non trouvée.</p>';
         }
-        
+
     } catch (Exception $e) {
         echo '<p>Erreur : ' . htmlspecialchars($e->getMessage()) . '</p>';
     }
-    
+
     exit;
 }
+
 
 ?>
 <!DOCTYPE html>

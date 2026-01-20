@@ -29,7 +29,7 @@ if (isset($_GET['ajax']) && $_GET['ajax'] === '1') {
             echo htmlspecialchars(substr($evenement->getDescription(), 0, 100)) . '...';
             echo '</div>';
 
-            echo '<span class="decouvrir">Découvrir</span>';
+            echo '<p class="decouvrir">Découvrir</p>';
 
             echo '</a>';
         }
@@ -45,45 +45,64 @@ if (isset($_GET['ajax']) && $_GET['ajax'] === '1') {
 
 // Si demande de détail d'un événement
 if (isset($_GET['detail']) && is_numeric($_GET['detail'])) {
-    
+
     try {
         $id = intval($_GET['detail']);
         $evenement = Evenement::getById($id);
-        
+
         if ($evenement) {
-            $titre = $evenement->getTitre();
-            
-            // Choisir l'image
+
             $image = $evenement->getImage();
-            
+
             echo '<div class="detail-evenement">';
-            echo '    <button onclick="retourListe()">← Retour à la liste</button>';
-            echo '    <section class="atelier">';
-            echo '        <div>';
+
+            echo '    <button class="retour" onclick="retourListe()">← Retour à la liste</button>';
+
+            echo '    <section class="atelier-detail">';
+
+            echo '        <div class="contenu-detail">';
             echo '            <h2>' . htmlspecialchars($evenement->getTitre()) . '</h2>';
-            echo '            <p>' . nl2br(htmlspecialchars($evenement->getDescription())) . '</p>';
-            echo '            <p><strong>Date début :</strong> ' . htmlspecialchars($evenement->getDateDebut()) . '</p>';
-            echo '            <p><strong>Date fin :</strong> ' . htmlspecialchars($evenement->getDateFin()) . '</p>';
-            
+            echo '            <p class="description-detail">' . nl2br(htmlspecialchars($evenement->getDescription())) . '</p>';
+
+            echo '            <div class="infos-detail">';
+
+            // Date
+            echo '                <div class="info-detail">';
+            echo '                    <img src="../css/images/calendrier.svg" alt="Calendrier">';
+            echo '                    <span>' . htmlspecialchars($evenement->getDateDebut()) . ' → ' . htmlspecialchars($evenement->getDateFin()) . '</span>';
+            echo '                </div>';
+
+            // Prix
             $prix = $evenement->getPrix();
-            if ($prix !== null) {
-                echo '            <p><strong>Prix :</strong> ' . number_format($prix, 2) . ' €</p>';
-            } else {
-                echo '            <p><strong>Prix :</strong> Gratuit</p>';
-            }
-            
+            echo '                <div class="info-detail">';
+            echo '                    <img src="../css/images/euro.svg" alt="Prix">';
+            echo '                    <span>' . ($prix !== null ? number_format($prix, 2) . ' €' : 'Gratuit') . '</span>';
+            echo '                </div>';
+
+            // Lieu (exemple)
+            echo '                <div class="info-detail">';
+            echo '                    <img src="../css/images/localisation.svg" alt="Lieu">';
+            echo '                    <span>La Pousinade</span>';
+            echo '                </div>';
+
+            echo '            </div>';
             echo '        </div>';
-            echo '        <img src="' . $image . '" alt="' . htmlspecialchars($evenement->getTitre()) . '" width="400">';
+
+            echo '        <div class="image-detail">';
+            echo '            <img src="' . $image . '" alt="' . htmlspecialchars($evenement->getTitre()) . '">';
+            echo '        </div>';
+
             echo '    </section>';
             echo '</div>';
+
         } else {
             echo '<p>Événement non trouvé.</p>';
         }
-        
+
     } catch (Exception $e) {
         echo '<p>Erreur : ' . htmlspecialchars($e->getMessage()) . '</p>';
     }
-    
+
     exit;
 }
 
