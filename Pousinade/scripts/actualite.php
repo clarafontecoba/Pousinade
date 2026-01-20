@@ -1,43 +1,9 @@
 <?php 
-// Inclusion des classes
 include_once('../classes/Database.php');
 include_once('../classes/Actualite.php');
 
-// Si demande de liste des actualités
-if (isset($_GET['ajax']) && $_GET['ajax'] === '1') {
-    
-    try {
-        $actualites = Actualite::getAllActualites();
-        
-        foreach ($actualites as $actualite) {
-            $titre = $actualite->getTitre();
-            $id = $actualite->getIdActualite();
-            
-            // Choisir l'image selon le type
-            $image = '../css/images/calligraphie.jpg';
-            if (stripos($titre, 'cours') !== false || stripos($titre, 'poterie') !== false) {
-                $image = '../css/images/calligraphie.jpg';
-            } elseif (stripos($titre, 'exposition') !== false || stripos($titre, 'céramique') !== false) {
-                $image = '../css/images/cuir.png';
-            } elseif (stripos($titre, 'stage') !== false || stripos($titre, 'été') !== false) {
-                $image = '../css/images/teintures.png';
-            }
-            
-            echo '<a href="javascript:void(0);" class="carte" onclick="afficherDetail(' . $id . ');">';
-            echo '    <h1>' . htmlspecialchars($titre) . '</h1>';
-            echo '    <img src="' . $image . '" alt="' . htmlspecialchars($titre) . '">';
-            echo '    <p>' . htmlspecialchars($actualite->getResume() ?? substr($actualite->getContenu(), 0, 100)) . '...</p>';
-            echo '</a>';
-        }
-        
-    } catch (Exception $e) {
-        echo '<p>Erreur : ' . htmlspecialchars($e->getMessage()) . '</p>';
-    }
-    
-    exit;
-}
+// Si l'utilisateur clique sur une carte, ce bloc s'exécute
 
-// Si demande de détail d'une actualité
 if (isset($_GET['detail']) && is_numeric($_GET['detail'])) {
     
     try {
@@ -45,20 +11,11 @@ if (isset($_GET['detail']) && is_numeric($_GET['detail'])) {
         $actualite = Actualite::getById($id);
         
         if ($actualite) {
-            $titre = $actualite->getTitre();
-            
-            // Choisir l'image
-            $image = '../css/images/calligraphie.jpg';
-            if (stripos($titre, 'cours') !== false || stripos($titre, 'poterie') !== false) {
-                $image = '../css/images/calligraphie.jpg';
-            } elseif (stripos($titre, 'exposition') !== false || stripos($titre, 'céramique') !== false) {
-                $image = '../css/images/cuir.png';
-            } elseif (stripos($titre, 'stage') !== false || stripos($titre, 'été') !== false) {
-                $image = '../css/images/teintures.png';
-            }
+            // Utiliser getImage() pour récupérer l'image depuis la BDD
+            $image = $actualite->getImage();
             
             echo '<div class="detail-actualite">';
-            echo '    <button onclick="retourListe()">← Retour à la liste</button>';
+            echo '    <button onclick="retourListe()" style="margin: 20px; padding: 10px 20px; cursor: pointer;">Retour à la liste</button>';
             echo '    <section class="atelier">';
             echo '        <div>';
             echo '            <h2>' . htmlspecialchars($actualite->getTitre()) . '</h2>';
@@ -122,6 +79,7 @@ if (isset($_GET['detail']) && is_numeric($_GET['detail'])) {
 <section class="ateliers">
     <h1>NOS ACTUALITÉS</h1>
     
+    <!-- Conteneur où les actualités seront chargées dynamiquement via l'API -->
     <div id="liste-actualites" class="cartes">
         <p>Chargement des actualités...</p>
     </div>
@@ -151,6 +109,59 @@ if (isset($_GET['detail']) && is_numeric($_GET['detail'])) {
 </footer>
 
 <script>
+// Cette fonction appelle l'API pour récupérer toutes les actualités et les affiche sous forme de cartes (triées pars l'api)
+function chargerActualites() {
+    var xhr = new XMLHttpRequest();
+    
+    // Appel de l'API pour récupérer toutes les actualités
+    xhr.open('GET', '../api/ApiActuRecente.php?limit=100', true);
+    
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            try {
+                var actualites = JSON.parse(xhr.responseText);
+                
+                if (actualites.length === 0) {
+                    document.getElementById('liste-actualites').innerHTML = '<p>Aucune actualité disponible.</p>';
+                    return;
+                }
+                
+                // Générer le HTML pour chaque actualité
+                var html = '';
+                actualites.forEach(function(actu) {
+                    var titre = actu.titre;
+                    var id = actu.id_actualite;
+                    
+                    var image = actu.image || '../css/images/calligraphie.jpg';
+                    
+                    html += '<a href="javascript:void(0);" class="carte" onclick="afficherDetail(' + id + ')">';
+                    html += '    <h1>' + titre + '</h1>';
+                    html += '    <img src="' + image + '" alt="' + titre + '">';
+                    
+                    var texte = actu.resume || actu.contenu.substring(0, 100);
+                    html += '    <p>' + texte + '...</p>';
+                    html += '</a>';
+                });
+                
+                document.getElementById('liste-actualites').innerHTML = html;
+                
+            } catch (e) {
+                document.getElementById('liste-actualites').innerHTML = '<p>Erreur lors du traitement des données.</p>';
+            }
+        } else {
+            document.getElementById('liste-actualites').innerHTML = '<p>Erreur lors du chargement des actualités.</p>';
+        }
+    };
+    
+    xhr.onerror = function() {
+        document.getElementById('liste-actualites').innerHTML = '<p>Erreur de connexion.</p>';
+    };
+    
+    xhr.send();
+}
+
+// fonction utilisé pour le détail des carte (clique)
+
 function afficherDetail(id) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'actualite.php?detail=' + id, true);
@@ -166,30 +177,17 @@ function afficherDetail(id) {
     xhr.send();
 }
 
+// Recharge les actualités depuis l'API
+
 function retourListe() {
     chargerActualites();
 }
 
-function chargerActualites() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'actualite.php?ajax=1', true);
-    
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            document.getElementById('liste-actualites').innerHTML = xhr.responseText;
-        } else {
-            document.getElementById('liste-actualites').innerHTML = '<p>Erreur lors du chargement.</p>';
-        }
-    };
-    
-    xhr.onerror = function() {
-        document.getElementById('liste-actualites').innerHTML = '<p>Erreur de connexion.</p>';
-    };
-    
-    xhr.send();
-}
+// Appeler l'API pour charger les actualités dès que la page est prête
 
-window.onload = chargerActualites;
+window.onload = function() {
+    chargerActualites();
+};
 </script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
