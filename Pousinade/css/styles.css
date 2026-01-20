@@ -37,12 +37,14 @@ a {
 
 
 /*CLASSES*/
+/*Page d'accueil */
 .banniere {
     position: relative; 
     height: 15rem;
     background-image: url("images/fond-acceuil.jpg");
     background-size: cover;
     background-position: center;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .texte-banniere {
@@ -78,82 +80,6 @@ a {
 }
 
 
-/*evenements cartes ateliers
-.ateliers {
-    text-align: center;
-}
-
-.cartes {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-
-}
-
-.carte {
-    width: 220px;
-    margin: 20px;
-    padding: 10px;
-    background-color: #a7ad4a;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-}
-
-.carte img {
-    width: 100%;
-}
-
-.carte p {
-    border: 1px solid black;
-    padding: 5px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-@media screen and (max-width: 768px) {
-
-    .cartes {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .carte {
-        width: 90%;
-    }
-}
-body {
-    margin: 0;
-    background-color: black;
-    color: white;
-}
-
-h1 {
-    margin: 20px;
-}
-
-.atelier {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #a7ad4a;
-    padding: 40px;
-}
-
-.texte {
-    width: 50%;
-}
-
-.texte h2 {
-    margin-top: 0;
-}
-
-.image {
-    width: 45%;
-}
-
-.image img {
-    width: 100%;
-}*/
 /*Evenements cartes ateliers*/
 .ateliers {
     padding: 60px 20px;

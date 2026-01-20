@@ -79,10 +79,10 @@ if (isset($_GET['detail']) && is_numeric($_GET['detail'])) {
             echo '                    <span>' . ($prix !== null ? number_format($prix, 2) . ' €' : 'Gratuit') . '</span>';
             echo '                </div>';
 
-            // Lieu (exemple)
+            // Lieu 
             echo '                <div class="info-detail">';
             echo '                    <img src="../css/images/localisation.svg" alt="Lieu">';
-            echo '                    <span>La Pousinade</span>';
+            echo '                    <p>La Pousinade</p>';
             echo '                </div>';
 
             echo '            </div>';
