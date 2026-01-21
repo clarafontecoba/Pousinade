@@ -83,7 +83,10 @@
 
     <form action="Contact.php" method="post" class="formulaire">
         <p>Votre nom</p>
-        <input type="text" name="nom" placeholder="Jean Dupont"><br>
+        <input type="text" name="nom" placeholder="Dupont"><br>
+
+        <p>Votre prénom</p>
+        <input type="text" name="prenom" placeholder="Jean"><br>
 
         <p>Votre adresse mail</p>
         <input type="email" name="email" placeholder="jean@gmail.com"><br>
@@ -92,7 +95,7 @@
         <input type="text" name="objet"><br>
 
         <p>Votre message</p>
-        <textarea></textarea><br>
+        <textarea name="message"></textarea><br>
 
         <input  class = "boutonEnvoyer" type="submit" value="Envoyer">
     </form>    
